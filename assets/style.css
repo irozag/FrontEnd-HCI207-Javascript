@@ -79,6 +79,8 @@ nav a {
 
 /* ------------ SECTIONS ---------- */
 
+/* ---- home page */
+
 #hero {
     background-image: url(/assets/don-joviani.jpeg);
     background-position: bottom;
@@ -162,7 +164,23 @@ nav a {
     position: absolute;
 }
 
+/* ------ programm */
+#calendar {
+    margin:2.2em;
+}
+.calendar {
+    border-collapse: collapse;
+    margin: auto;
+}
 
+
+.calendarDate {
+    height: 150px;
+    width:150px;
+    border:1px solid #000;
+    vertical-align: top;
+    font-size:2em;
+}
 
 /* ------------ FOOTER ---------- */
 
