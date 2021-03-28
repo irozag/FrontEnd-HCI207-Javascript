@@ -14,6 +14,7 @@ a {
 h1, h2 {
     text-align: center;
     font-family: 'Alegreya Sans SC', sans-serif;
+    font-size:2em;
 }
 
 button, .btn {
@@ -115,6 +116,52 @@ nav a {
 #banners img {
     width:33%;
 }
+
+#upcoming {
+    margin-top:4em;
+    position: relative;
+}
+
+.feature{
+    width:28%;
+    float:left;
+    margin: 0 2.2em 6em 2.2em;
+
+}
+
+.feature-photo {
+ background: url(/assets/madama-butterfly.jpeg);
+ background-size: contain;
+ min-height: 250px;
+}
+.feature .title {
+    font-size:35px;
+}
+.feature .composser {
+    font-size:20px;
+}
+.feature .room {
+    color:rgb(126, 126, 126);
+    margin-top:10px;
+}
+
+.feature .dates {
+    text-align: right;
+    font-size:20px;
+}
+#upcoming .sticky {
+    position: absolute;
+    right: 0;
+    top: 16em;
+    padding-left: 65px;
+    padding-right: 35px;
+}
+.sticky span {
+    padding-left:10px;
+    padding-top:2px;
+    position: absolute;
+}
+
 
 
 /* ------------ FOOTER ---------- */
