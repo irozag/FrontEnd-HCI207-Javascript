@@ -13,19 +13,35 @@ a {
 
 h1, h2 {
     text-align: center;
+    font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 button, .btn {
-    border:none;
+    border:1px solid #008ece; 
     background-color:#008ece;
     color:#fff;
     padding:0.8em 1em;
     font-size: 16px;
 }
 
+button:hover, .btn:hover {
+    background-color:#0e7eb1;
+}
+
 input {
     padding: 1em;
+    margin-left:0.5em;
+    border:1px solid transparent;
 }
+input:hover {
+    border:1px solid #008ece;
+} 
+
+input.in-date {
+    padding: 0.83em;
+    width:250px;
+}
+
 
 /* ------------ HEADER ---------- */
 
@@ -86,6 +102,9 @@ nav a {
 
 #search {
     text-align: center;
+    padding:1em 0 2em 0;
+    margin: 0 2.2em;
+    background-color: #ebebeb;
 }
 
 #banners {
@@ -103,7 +122,6 @@ nav a {
 footer {
     background-color: #008ece;
     padding:1em;
-    width:100%;
 }
 
 .footer-links ul {
