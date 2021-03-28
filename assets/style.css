@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap');
 
+/* ------------ INITIALS ---------- */
 
 body { 
     margin:0;
@@ -9,6 +10,20 @@ body {
 a {
     text-decoration: none;
 }
+
+h1, h2 {
+    text-align: center;
+}
+
+button {
+    border:none;
+    background-color:#008ece;
+    color:#fff;
+    padding:0.8em 1em;
+    font-size: 16px;
+}
+
+/* ------------ HEADER ---------- */
 
 header a, footer a {
     color:#fff;
@@ -40,7 +55,10 @@ nav a {
     padding-left:1em;
 }
 
-#slider {
+
+/* ------------ SECTIONS ---------- */
+
+#hero {
     background-image: url(/assets/don-joviani.jpeg);
     background-position: bottom;
     margin:2.2em;
@@ -60,13 +78,24 @@ nav a {
 .caption .composser, .caption .dates{
     font-size:28px;
 }
+#banners {
+    text-align: center;
+    margin:2em;
+}
+
+#banners img {
+    width:33%;
+}
+
+
+
+
+/* ------------ FOOTER ---------- */
 
 footer {
     background-color: #008ece;
     padding:1em;
-    position:fixed;
     width:100%;
-    bottom:0;
 }
 
 .footer-links ul {
