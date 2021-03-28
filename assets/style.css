@@ -40,6 +40,27 @@ nav a {
     padding-left:1em;
 }
 
+#slider {
+    background-image: url(/assets/don-joviani.jpeg);
+    background-position: bottom;
+    margin:2.2em;
+    min-height:500px;
+}
+
+.caption {
+    color:#fff;
+    text-align:center;
+    padding:11em;
+}
+.caption .title {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 58px;
+}
+
+.caption .composser, .caption .dates{
+    font-size:28px;
+}
+
 footer {
     background-color: #008ece;
     padding:1em;
