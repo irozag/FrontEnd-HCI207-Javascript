@@ -175,13 +175,23 @@ nav a {
 
 
 .calendarDate {
-    height: 150px;
-    width:150px;
+    height: 170px;
+    width:170px;
     border:1px solid #000;
     vertical-align: top;
     font-size:2em;
 }
 
+/* ------ reservations */
+.seat {
+    width: 10px;
+    height: 10px;
+    background-color: #7602ce;
+}
+
+.seat:hover {
+    background-color: #000000;
+}
 /* ------------ FOOTER ---------- */
 
 footer {
