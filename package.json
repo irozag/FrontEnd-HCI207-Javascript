@@ -1,0 +1,25 @@
+{
+  "name": "hci207-1088747-project-1",
+  "version": "1.0.0",
+  "description": "front end exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irozg/hci207-1088747-project-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irozg/hci207-1088747-project-1/issues"
+  },
+  "homepage": "https://github.com/irozg/hci207-1088747-project-1#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "file-system": "^2.2.2"
+  }
+}
