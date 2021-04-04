@@ -1,13 +1,26 @@
-const featureFeed = document.querySelector("#row");
+const featureFeed = document.querySelector("#feature-feed");
 
 let titles = Object.keys(shows);
 
-titles.forEach(function(titles){
-    //console.log(shows[titles].name);
-    let feature = document.createElement('div');
-    feature.classList.add('feature');
-    featureFeed.appendChild(feature);
+let dates = featureFeed.querySelectorAll('.dates');
+let title = featureFeed.querySelectorAll('.title');
+let photo = featureFeed.querySelectorAll('.feature-photo');
+let room = featureFeed.querySelectorAll('.room');
+let composer = featureFeed.querySelectorAll('.composer');
+let i=0;
 
+titles.forEach(function(titles){
+    console.log(dates[i]);
+    dates[i].innerHTML =  shows[titles].mounth ;
+    title[i].innerHTML =  shows[titles].name ;
+    room[i].innerHTML =  shows[titles].room ;
+    photo[i].style.backgroundImage = "url("+shows[titles].photo+")";
+    composer[i].innerHTML =  shows[titles].composer ;
+    i++;
+
+});
+
+/* 
     let div = document.createElement('div');
     div.classList.add('dates');
     div.innerHTML =  shows[titles].mounth;
@@ -36,10 +49,8 @@ titles.forEach(function(titles){
     div.classList.add('composer');
     div.innerHTML =  shows[titles].composer;
     feature.appendChild(div);
-    console.log(div);
+    console.log(div); */
 
-  
-});
 
 
 

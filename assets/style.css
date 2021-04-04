@@ -140,7 +140,7 @@ nav a {
 
 .feature{
     width:28%;
-    float:left;
+    display: inline-block;
     margin: 0 2.2em 6em 2.2em;
 
 }
