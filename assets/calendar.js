@@ -8,23 +8,50 @@ function thisMonth() {
     let thisDay = date.getDay();
     let thisMonth = date.getMonth();
     let thisYear = date.getFullYear();
+    let thisDate = date.getDate();
 
-    //print the title
+     //εκτύπωσε τον τιτλο του ημερολογίου
     let h2 = calendar.querySelector("h2").innerHTML = months[thisMonth];
 
-   // calculate the days of this month
-    let daysM = function(month,year) {
-      return new Date(year, month, 0).getDate();
-   };
-   thisMonth++;
-   let daysInMonth = daysM(thisMonth, thisYear);
+    //η πρώτη μέρα τoy μήνα σε μέρα 
+    let firstDay = new Date(thisYear, thisMonth, 1).getDay();
+
+    // ο αριθμός των μερών που έχει ο μήνας
+      let daysM = function(month,year) {
+        return new Date(year, month, 0).getDate();
+    };
+    thisMonth++;
+    let daysInMonth = daysM(thisMonth, thisYear);
+
+  //  let arrayCal = Array(firstDay);
 
 
-   
-   console.log(thisDay);
+    let tr = document.querySelector("#squares");
+    let mCounter = 1;
+    for (i=0; i<7; i++){
+      if (i<firstDay-1) {
+      let td = document.createElement('td');
+      td.classList.add('empty', 'calendarDate');
+      td.textContent= "0";
+      tr.appendChild(td);
+      }else{
+        let td = document.createElement('td');
+        td.classList.add( mCounter, 'calendarDate');
+        td.textContent= mCounter;
+        tr.appendChild(td);
+        mCounter++
+      }
+}
+
+
+   console.log("modulo ");
+   console.log(firstDay);
+   console.log(thisDate);
+   console.log(arrayCal);
    console.log("this month is : " + thisMonth);
    console.log("this month has : " + daysInMonth);
  
+
 
  
   }
