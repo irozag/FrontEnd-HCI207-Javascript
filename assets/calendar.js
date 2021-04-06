@@ -27,12 +27,13 @@ function createCalendar() {
 
   let body = document.querySelector("#squares");
   let mCounter = 1;
-  let col = Math.ceil(month.daysInMonth/7);
-  for (z=0; z<=col; z++){
+  let col = Math.ceil((month.daysInMonth+month.firstDay)/7);
+  console.log (col);
+  for (z=0; z<col; z++){
     let tr = document.createElement('tr');
     body.appendChild(tr);
     for (i=0; i<7; i++){
-          if ((i < month.firstDay-1) && (z===0)) {
+          if ((i < month.firstDay -1) && (z===0)) {
             let td = document.createElement('td');
             td.classList.add('empty', 'calendarDate');
             tr.appendChild(td);
