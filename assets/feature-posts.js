@@ -2,7 +2,7 @@ const featureFeed = document.querySelector("#row");
 
 let titles = Object.keys(shows);
 
-titles.forEach(function(titles){
+titles.forEach(function (title) {
 
     let feature = document.createElement('div');
     feature.classList.add('feature');
@@ -10,40 +10,40 @@ titles.forEach(function(titles){
 
     let div = document.createElement('div');
     div.classList.add('dates');
-    div.innerHTML =  shows[titles].mounth;
+    div.innerHTML = shows[title].mounth;
     feature.appendChild(div);
-  
+
     div = document.createElement('div');
     div.classList.add('feature-photo');
-    div.style.backgroundImage = "url("+shows[titles].photo+")";
+    div.style.backgroundImage = "url(" + shows[title].photo + ")";
     feature.appendChild(div);
-   
+
     div = document.createElement('div');
     div.classList.add('room');
-    div.innerHTML =  shows[titles].room;
+    div.innerHTML = shows[title].room;
     feature.appendChild(div);
 
     div = document.createElement('div');
     div.classList.add('title');
-    div.innerHTML =  shows[titles].name;
+    div.innerHTML = shows[title].name;
     feature.appendChild(div);
 
     div = document.createElement('div');
     div.classList.add('composer');
-    div.innerHTML =  shows[titles].composer;
+    div.innerHTML = shows[title].composer;
     feature.appendChild(div);
 
 });
 
-if(titles.length >3) {
+if (titles.length > 3) {
     button = document.createElement('button');
     button.classList.add('sticky');
     button.innerHTML = "Περισσότερα <span>> </span>"
-    let featurefeed = document.querySelector("#feature-feed"); 
+    let featurefeed = document.querySelector("#feature-feed");
     featurefeed.appendChild(button);
- }
+}
 
-/* 
+/*
 
 let dates = featureFeed.querySelectorAll('.dates');
 let title = featureFeed.querySelectorAll('.title');

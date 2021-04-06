@@ -1,5 +1,5 @@
-let play = Object.keys(shows);
-let months = new Array("ΙΑΝΟΥΑΡΙΟΣ","ΦΕΒΡΟΥΑΡΙΟΣ", "ΜΑΡΤΙΟΣ", "ΑΠΡΙΛΙΟΣ", "ΜΑΙΟΣ", "ΙΟΥΝΙΟΣ","ΙΟΥΛΙΟΣ","ΑΥΓΟΥΣΤΟΣ","ΣΕΠΤΕΜΒΡΙΟΣ","ΟΚΤΟΒΡΙΟΣ","ΝΟΕΜΒΡΙΟΣ","ΔΕΚΕΜΒΡΙΟΣ");
+let monthsMap = new Array("ΙΑΝΟΥΑΡΙΟΣ", "ΦΕΒΡΟΥΑΡΙΟΣ", "ΜΑΡΤΙΟΣ", "ΑΠΡΙΛΙΟΣ", "ΜΑΙΟΣ", "ΙΟΥΝΙΟΣ", "ΙΟΥΛΙΟΣ", "ΑΥΓΟΥΣΤΟΣ", "ΣΕΠΤΕΜΒΡΙΟΣ", "ΟΚΤΟΒΡΙΟΣ", "ΝΟΕΜΒΡΙΟΣ", "ΔΕΚΕΜΒΡΙΟΣ");
+
 
 function currentMonth() {
   let date = new Date();
@@ -10,47 +10,78 @@ function currentMonth() {
   let firstDay = new Date(thisYear, thisMonth, 1).getDay();
 
   // ο αριθμός των μερών που έχει ο μήνας
-    let daysM = function(month,year) {
-      return new Date(year, month, 0).getDate();
+  let daysM = function (month, year) {
+    return new Date(year, month, 0).getDate();
   };
-  let daysInMonth = daysM(thisMonth+1, thisYear);
-  console.log(daysInMonth);
+  let daysInMonth = daysM(thisMonth + 1, thisYear);
+
   return { thisMonth, firstDay, daysInMonth };
 }
 
-function createCalendar() {
-  let month = currentMonth();
+
+function createCalendar(month) {
+
+
   //κτησιμο html calendar
 
   //εκτύπωσε τον τιτλο του ημερολογίου
-  let h2 = document.querySelector("h2").innerHTML = months[month.thisMonth];
+  let h2 = document.querySelector("h2").innerHTML = monthsMap[month.thisMonth];
 
   let body = document.querySelector("#squares");
   let mCounter = 1;
-  let col = Math.ceil((month.daysInMonth+month.firstDay)/7);
-  console.log (col);
-  for (z=0; z<col; z++){
+  let col = Math.ceil((month.daysInMonth + month.firstDay) / 7);
+
+  for (z = 0; z < col; z++) {
     let tr = document.createElement('tr');
     body.appendChild(tr);
-    for (i=0; i<7; i++){
-          if ((i < month.firstDay -1) && (z===0)) {
-            let td = document.createElement('td');
-            td.classList.add('empty', 'calendarDate');
-            tr.appendChild(td);
-          } else if (mCounter <= month.daysInMonth){
-            let td = document.createElement('td');
-            td.classList.add( mCounter, 'calendarDate');
-            td.textContent= mCounter;
-            tr.appendChild(td);
-            mCounter++
-          } else {
-            let td = document.createElement('td');
-            td.classList.add('empty', 'calendarDate');
-            tr.appendChild(td);
-          }
-  
-        } 
+    for (i = 0; i < 7; i++) {
+      if ((i < month.firstDay - 1) && (z === 0)) {
+        let td = document.createElement('td');
+        td.classList.add('calendarDate', 'empty');
+        tr.appendChild(td);
+      } else if (mCounter <= month.daysInMonth) {
+        let td = document.createElement('td');
+        td.classList.add('calendarDate', "d" + mCounter);
+        td.innerHTML = "<span>" + mCounter + "</span>";
+        tr.appendChild(td);
+        mCounter++
+      } else {
+        let td = document.createElement('td');
+        td.classList.add('calendarDate', 'empty');
+        tr.appendChild(td);
+      }
+
     }
   }
+}
 
-  createCalendar();
+function addplays(month, plays) {
+
+  plays.forEach((play) => {
+    // για κάθε μία παρασταση πάρε φτιαξε ενα πίνακα με τις ημερομινιες 
+    let datesA = shows[play].dates;
+    console.log(datesA);
+    //φιλτραρε τις παραστασεις του μηνα  (δεν ελέγχω το χρόνο)
+    let thisMonthPlays = datesA.filter((el) => el.split("-")[1] == month + 1);
+    thisMonthPlays = thisMonthPlays.map((el) => el.split("-")[2]);
+
+    console.log(thisMonthPlays);
+    thisMonthPlays.forEach((el) => {
+      let td = document.querySelector(".d" + el);
+      div = document.createElement('div');
+      div.classList.add('textlink');
+      div.innerHTML = "<a href='#'>" + shows[play].name + "</a>";
+      td.appendChild(div);
+
+      console.log(td);
+    });
+
+  });
+
+
+}
+
+let plays = Object.keys(shows);
+let month = currentMonth();
+createCalendar(month);
+addplays(month.thisMonth, plays);
