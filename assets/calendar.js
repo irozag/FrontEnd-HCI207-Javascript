@@ -42,7 +42,7 @@ function createCalendar(month) {
       } else if (mCounter <= month.daysInMonth) {
         let td = document.createElement('td');
         td.classList.add('calendarDate', "d" + mCounter);
-        td.innerHTML = "<span>" + mCounter + "</span>";
+        td.innerHTML = "<div>" + mCounter + "</div>";
         tr.appendChild(td);
         mCounter++
       } else {
