@@ -200,10 +200,27 @@ nav a {
     color:#6f00c1;
     font-size:18px;
     font-family:Arial, Helvetica, sans-serif;
+    position: relative;
 }
 .textlink { 
     margin: 0px 7px;
     display: inline-grid;
+}
+
+.pop{
+    background:#fff;
+    -webkit-box-shadow: -2px 2px 15px 4px #D5C2FF; 
+    box-shadow: -2px 2px 15px 4px #D5C2FF;
+    position: absolute;
+    margin-top:30px;
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 2px 5px;
+    visibility: hidden;
+    z-index: 2;
+}
+.textlink:hover .pop {
+    visibility: visible;
 }
 
 /* ------ reservations */

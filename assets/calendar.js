@@ -1,6 +1,5 @@
 let monthsMap = new Array("ΙΑΝΟΥΑΡΙΟΣ", "ΦΕΒΡΟΥΑΡΙΟΣ", "ΜΑΡΤΙΟΣ", "ΑΠΡΙΛΙΟΣ", "ΜΑΙΟΣ", "ΙΟΥΝΙΟΣ", "ΙΟΥΛΙΟΣ", "ΑΥΓΟΥΣΤΟΣ", "ΣΕΠΤΕΜΒΡΙΟΣ", "ΟΚΤΟΒΡΙΟΣ", "ΝΟΕΜΒΡΙΟΣ", "ΔΕΚΕΜΒΡΙΟΣ");
 
-
 function currentMonth() {
   let date = new Date();
   let thisMonth = date.getMonth();
@@ -18,10 +17,7 @@ function currentMonth() {
   return { thisMonth, firstDay, daysInMonth };
 }
 
-
 function createCalendar(month) {
-
-
   //κτησιμο html calendar
 
   //εκτύπωσε τον τιτλο του ημερολογίου
@@ -57,25 +53,38 @@ function createCalendar(month) {
 
 function addplays(month, plays) {
 
+  // function popover(){
+  //   let date = this.querySelector(".calendarDate");
+  //   console.log(date);
+  // }
+  // function removepop() {
+  //   let pop = document.querySelector(".pop");
+  //   pop.remove();
+  // }
+
   plays.forEach((play) => {
     // για κάθε μία παρασταση πάρε φτιαξε ενα πίνακα με τις ημερομινιες 
     let datesA = shows[play].dates;
-    console.log(datesA);
+
     //φιλτραρε τις παραστασεις του μηνα  (δεν ελέγχω το χρόνο)
     let thisMonthPlays = datesA.filter((el) => el.split("-")[1] == month + 1);
     thisMonthPlays = thisMonthPlays.map((el) => el.split("-")[2]);
 
-    console.log(thisMonthPlays);
     thisMonthPlays.forEach((el) => {
       let td = document.querySelector(".d" + el);
-      div = document.createElement('div');
+      let div = document.createElement('div');
       div.classList.add('textlink');
-      div.innerHTML = "<a href='#'>" + shows[play].name + "</a>";
+      div.innerHTML = "<a href='/play.html?" + play + "'>" + shows[play].name + "</a>";
+      //div.addEventListener('mouseover', popover);
+     // div.addEventListener('mouseout', removepop);
       td.appendChild(div);
-
-      console.log(td);
+      let pop = document.createElement('div');
+      pop.classList.add("pop");
+      pop.textContent = "test"
+      div.appendChild(pop);
+    
     });
-
+    console.log(plays);
   });
 
 
