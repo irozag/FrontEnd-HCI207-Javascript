@@ -53,10 +53,12 @@ function createCalendar(month) {
 
 function addplays(month, plays) {
 
-  // function popover(){
-  //   let date = this.querySelector(".calendarDate");
-  //   console.log(date);
-  // }
+  function popover(){
+    let date = document.querySelectorAll(".calendarDate");
+    console.log(date[this]);
+  }
+
+  popover();
   // function removepop() {
   //   let pop = document.querySelector(".pop");
   //   pop.remove();
@@ -78,10 +80,10 @@ function addplays(month, plays) {
       //adiv.addEventListener('mouseover', popover);
      // div.addEventListener('mouseout', removepop);
       td.appendChild(div);
-      let pop = document.createElement('div');
-      pop.classList.add("pop");
-      pop.textContent = "test"
-      div.appendChild(pop);
+      // let pop = document.createElement('div');
+      // pop.classList.add("pop");
+      // pop.textContent = "test"
+      // div.appendChild(pop);
     
     });
     console.log(plays);
