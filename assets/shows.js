@@ -14,7 +14,7 @@ const shows =
         "crew": {
             "conductor": "Ντάνιελ Σμιθ",
             "director": "Τζων Φούλτζεϊμς",
-            "associate director": "Αϋλίν Μπόζοκ",
+            "associate-director": "Αϋλίν Μπόζοκ",
             "sets": "Ντικ Μπερντ",
             "costumes": "Άνμαρι Γουντς",
             "choreographer": "Μαξίν Μπρέιαμ",
