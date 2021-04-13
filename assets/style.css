@@ -236,17 +236,26 @@ nav a {
 }
 /* ------ play */
 
-#play {
-    margin-top:50px;
+.wrapper {
+    display: grid;
+    gap:5px;
+    grid-auto-columns: minmax(auto, 50%);
+    width:100%;
+    grid-template-areas:
+        'main main main main main photo photo photo photo photo'
+     
 }
-.play.left{
+.photo {
+    grid-area:photo;
+  
+}
+
+.play.main{
+    grid-area:main;
     margin:4em;
-}
-.play.right{
-    width:50%;
     height: 80%;
 }
-.play.right .feature-photo{
+.play.photo .feature-photo{
     background-image: url(/assets/hero-tzovani.jpeg);
     background-repeat: no-repeat;
     background-position:center;
@@ -256,14 +265,16 @@ nav a {
 .play .composser {
     font-size: 20px;
 }
+
 .names {
-    position: absolute;
-    right: 120px;
+    margin-top:-30px;
     background: #000000a8;
     color: #fff;
     padding: 20px;
-    top:54px;
-    height: calc(100% - 13.5vh);
+    grid-row: 1;
+    grid-column: 8/ 9;
+    justify-self: flex-start;
+
 }
 .details {
     margin: 20px;
