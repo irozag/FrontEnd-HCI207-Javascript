@@ -133,6 +133,9 @@ nav a {
 #banners img {
     width:33%;
 }
+.title a {
+    color:#000;
+}
 
 #feature-feed {
     margin-top:4em;
@@ -266,7 +269,7 @@ nav a {
     font-size: 20px;
 }
 
-.names {
+.crew {
     margin-top:-30px;
     background: #000000a8;
     color: #fff;

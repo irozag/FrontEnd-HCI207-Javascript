@@ -25,8 +25,9 @@ titles.forEach(function (title) {
 
     div = document.createElement('div');
     div.classList.add('title');
-    div.innerHTML = shows[title].name;
+    div.innerHTML = '<a href="play.html?'+title+'">'+shows[title].name+'</a>';
     feature.appendChild(div);
+    console.log(shows[title]);
 
     div = document.createElement('div');
     div.classList.add('composer');
