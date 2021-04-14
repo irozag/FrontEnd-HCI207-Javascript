@@ -1,30 +1,45 @@
-let item =  window.location.href.split("?")[1];
-//let crew = shows[item].crew;
-document.querySelector(".room").innerHTML = shows[item].room;
-document.querySelector(".title").innerHTML = shows[item].name; 
-document.querySelector(".composer").innerHTML = shows[item].composer;
-document.querySelector(".dates").innerHTML = shows[item].mounth;
-document.querySelector(".dates").innerHTML = shows[item].mounth;
-document.querySelector(".production").innerHTML = shows[item].production;
-document.querySelector(".description").innerHTML = shows[item].description;
+const item =  window.location.href.split("?")[1];
+const play = shows[item];
+
+// let text = /(video)*(designer)/;
+
+// function getMatchingPropertyNames(expression,object){
+//     var result = [];
+//    let express = new RegExp(expression, 'i');
+//   console.log(express);
+//     for (var property in object) {
+//      console.log(express.test(property));
+//             if (express.test(property)) {  
+//                 result.push(property);
+//             }
+//     }
+//     return result;
+// };
+
+document.querySelector(".room").innerHTML = play.room;
+document.querySelector(".title").innerHTML = play.name; 
+document.querySelector(".composer").innerHTML = play.composer;
+document.querySelector(".dates").innerHTML = play.mounth;
+document.querySelector(".dates").innerHTML = play.mounth;
+document.querySelector(".production").innerHTML = play.production;
+document.querySelector(".description").innerHTML = play.description;
+
+// const crew = play['crew'];
+    console.log(item);
+document.querySelector("#conductor").innerHTML = crew.conductor;
+document.querySelector("#director").innerHTML = crew.director;
+document.querySelector("#associate").innerHTML = crew['associate director'];
+document.querySelector("#sets").innerHTML = crew.sets;
+document.querySelector("#costumes").innerHTML = crew.costumes;
+document.querySelector("#choreographer").innerHTML = crew.choreographer;
+document.querySelector("#lighting").innerHTML = crew['lighting designer'];
+//  document.querySelector("#video").innerHTML = crew[/(video)*(designer)/];
+document.querySelector("#programmer").innerHTML = crew['programmer video'];
+document.querySelector("#chorus").innerHTML = crew['chorus master'];
+document.querySelector("#chorus").innerHTML = crew['chorus master'];
 
 
-
-document.querySelector("#conductor").innerHTML = shows[item].crew.conductor;
-document.querySelector("#director").innerHTML = shows[item].crew.director;
-document.querySelector("#associate").innerHTML = shows[item].crew['associate director'];
-document.querySelector("#sets").innerHTML = shows[item].crew.sets;
-document.querySelector("#costumes").innerHTML = shows[item].crew.costumes;
-document.querySelector("#choreographer").innerHTML = shows[item].crew.choreographer;
-document.querySelector("#lighting").innerHTML = shows[item].crew['lighting designer'];
-let text = /video/;
-document.querySelector("#video").innerHTML = shows[item].crew[text];
-document.querySelector("#programmer").innerHTML = shows[item].crew['programmer video'];
-document.querySelector("#chorus").innerHTML = shows[item].crew['chorus master'];
-document.querySelector("#chorus").innerHTML = shows[item].crew['chorus master'];
-
-
-// for ( var item in shows['crew']){
+// for ( var item in play['crew']){
 //     var parentNode = document.querySelector('.crew');
 //     var newElement = document.createElement("div");
 //     newElement.innerHTML = theShow['crew'][item];

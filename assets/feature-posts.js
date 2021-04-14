@@ -1,4 +1,6 @@
 const featureFeed = document.querySelector("#row");
+const page =  window.location.href;
+console.log(page);
 
 let titles = Object.keys(shows);
 
@@ -8,10 +10,12 @@ titles.forEach(function (title) {
     feature.classList.add('feature');
     featureFeed.appendChild(feature);
 
-    let div = document.createElement('div');
-    div.classList.add('dates');
-    div.innerHTML = shows[title].mounth;
-    feature.appendChild(div);
+    if (!page.includes('reservation')){
+        let div = document.createElement('div');
+        div.classList.add('dates');
+        div.innerHTML = shows[title].mounth;
+        feature.appendChild(div);
+    }
 
     div = document.createElement('div');
     div.classList.add('feature-photo');
@@ -25,7 +29,13 @@ titles.forEach(function (title) {
 
     div = document.createElement('div');
     div.classList.add('title');
+    if (!page.includes('reservation')){
     div.innerHTML = '<a href="play.html?'+title+'">'+shows[title].name+'</a>';
+    }else {
+        let play = shows[title];
+        div.innerHTML = shows[title].name;
+        console.log(play);
+    }
     feature.appendChild(div);
     console.log(shows[title]);
 
