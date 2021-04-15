@@ -246,8 +246,9 @@ nav a {
     background-color: #ebebeb;
 }
  
-#wrapper {
+.rWrapper {
     display:flex;
+    justify-content: space-around;
 }
 .date {
     text-align: left;

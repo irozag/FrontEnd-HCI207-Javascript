@@ -47,7 +47,7 @@ function userSelection() {
 function displayAllPlays(userSelection) {
 
     let wrapper = document.createElement("div");
-    wrapper.classList.add('wrapper');
+    wrapper.classList.add('rWrapper');
 
     // let datesDiv = document.querySelector(".wrapper");
 
@@ -97,8 +97,6 @@ function displayAllPlays(userSelection) {
             }
 
         }
-
-         
 
         wrapper.appendChild(div);
         datesDiv.appendChild(wrapper);
