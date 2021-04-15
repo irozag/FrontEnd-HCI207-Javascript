@@ -76,21 +76,26 @@ function displayAllPlays(userSelection) {
         for (role in play.roles) {
             let divRole = document.createElement('div');
             divRole.classList.add('role');
-            divRole.innerHTML = role + ": ";
+            divRole.innerHTML = role + ": <br/>";
             div.appendChild(divRole);
             let span = document.createElement('span');
             span.classList.add('actor');
             divRole.appendChild(span);
             // console.log(role);  //return strings with the names of roles    
-            let actors = play.roles[role];
-            //  console.log(actors);   // return object of actors
-            for (actor in actors) {
-                let exist = actors[actor].some(arrVal => date === arrVal);
-                // console.log(exist);
-                if (exist) {
+            let dateAr = play.roles[role];
+            // console.log(actors);   // return object of actors
+           
+            // print the roles of the actors for each date
+            for (actor in dateAr) {
+                let exist = dateAr[actor].some(arrVal => date === arrVal);
+              if (exist) {
                     span.innerHTML = actor;
+                } else if (dateAr[actor].length === 0){
+                    span.innerHTML = actor;
+                    console.log(actor);
                 }
             }
+
 
         }
 

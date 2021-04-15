@@ -255,6 +255,7 @@ nav a {
 }
 .role {
     font-weight: bold;
+    margin:10px 0;
 }
 .role span {
     font-weight: normal;
