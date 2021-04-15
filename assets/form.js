@@ -98,6 +98,8 @@ function displayAllPlays(userSelection) {
 
         }
 
+         
+
         wrapper.appendChild(div);
         datesDiv.appendChild(wrapper);
         // datesDiv.appendChild(div);
