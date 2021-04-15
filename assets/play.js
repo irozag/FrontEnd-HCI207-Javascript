@@ -1,5 +1,6 @@
 const item =  window.location.href.split("?")[1];
 const play = shows[item];
+console.log(item);
 
 // let text = /(video)*(designer)/;
 
@@ -25,19 +26,41 @@ document.querySelector(".production").innerHTML = play.production;
 document.querySelector(".description").innerHTML = play.description;
 document.querySelector(".feature-photo").style.backgroundImage = "url(" + play.photo + ")";
 
-// const crew = play['crew'];
-    console.log(item);
-document.querySelector("#conductor").innerHTML = crew.conductor;
-document.querySelector("#director").innerHTML = crew.director;
-document.querySelector("#associate").innerHTML = crew['associate director'];
-document.querySelector("#sets").innerHTML = crew.sets;
-document.querySelector("#costumes").innerHTML = crew.costumes;
-document.querySelector("#choreographer").innerHTML = crew.choreographer;
-document.querySelector("#lighting").innerHTML = crew['lighting designer'];
-//  document.querySelector("#video").innerHTML = crew[/(video)*(designer)/];
-document.querySelector("#programmer").innerHTML = crew['programmer video'];
-document.querySelector("#chorus").innerHTML = crew['chorus master'];
-document.querySelector("#chorus").innerHTML = crew['chorus master'];
+const crew = play['crew']
+let details = document.querySelectorAll(".details");
+
+// console.log(details);
+
+// let elems = document.querySelectorAll('select option:checked')
+// let values = Array.prototype.map.call(elems, function(obj) {
+//   return obj.value
+// });
+
+for ( i=0; i<details.length; i++ ){
+    for ( person in crew) {
+        console.log(person);
+    }
+    // console.log (element);
+    // let div = document.createElement('div');
+    // div.classList.add('details');
+    // let span = document.createElement("span");
+    // span.innerHTML = crew[element];
+    // div.appendChild(span);
+    // document.querySelector(".overlay").appendChild(div);
+  
+  
+}
+// document.querySelector("#conductor").innerHTML = crew.conductor;
+// document.querySelector("#director").innerHTML = crew.director;
+// document.querySelector("#associate").innerHTML = crew['associate director'];
+// document.querySelector("#sets").innerHTML = crew.sets;
+// document.querySelector("#costumes").innerHTML = crew.costumes;
+// document.querySelector("#choreographer").innerHTML = crew.choreographer;
+// document.querySelector("#lighting").innerHTML = crew['lighting designer'];
+// //  document.querySelector("#video").innerHTML = crew[/(video)*(designer)/];
+// document.querySelector("#programmer").innerHTML = crew['programmer video'];
+// document.querySelector("#chorus").innerHTML = crew['chorus master'];
+// document.querySelector("#chorus").innerHTML = crew['chorus master'];
 
 
 // for ( var item in play['crew']){
@@ -52,5 +75,4 @@ document.querySelector("#chorus").innerHTML = crew['chorus master'];
 //     parentNode.appendChild(newElement);
 //   }
 
-console.log(shows['crew']);
-console.log(item);
+

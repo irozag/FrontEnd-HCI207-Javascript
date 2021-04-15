@@ -52,8 +52,6 @@ function displayAllPlays(userSelection) {
     let wrapper = document.createElement("div");
     wrapper.classList.add('rWrapper');
 
-    // let datesDiv = document.querySelector(".wrapper");
-
     let play = shows[userSelection];
     let datesAr = play.dates;
 
@@ -69,9 +67,11 @@ function displayAllPlays(userSelection) {
         input.setAttribute("type", "radio");
         input.setAttribute("id", date);
         input.setAttribute("name","date");
+        input.addEventListener("click", formApplication ());
+
         input.value = date;
         div.appendChild(input);
-        // ενα label
+        // φτιάξε ενα label
         let label = document.createElement('label');
         label.setAttribute("for", date);
         label.innerHTML = date;
@@ -96,7 +96,6 @@ function displayAllPlays(userSelection) {
                     span.innerHTML = actor;
                 } else if (dateAr[actor].length === 0) {
                     span.innerHTML = actor;
-                    // console.log(actor);
                 }
             }
 
@@ -110,6 +109,10 @@ function displayAllPlays(userSelection) {
 
 }
 
+
+
 userSelection();
 
-
+function formApplication () {
+   
+}
