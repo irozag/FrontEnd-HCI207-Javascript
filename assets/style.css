@@ -241,13 +241,24 @@ nav a {
 
 #reservation {
     text-align: center;
-    padding: 2em 0;
+    padding: 2em;
     margin: 2.2em;
     background-color: #ebebeb;
 }
  
-
-
+#wrapper {
+    display:flex;
+}
+.date {
+    text-align: left;
+    padding-top:20px;
+}
+.role {
+    font-weight: bold;
+}
+.role span {
+    font-weight: normal;
+}
 /* ------ play */
 
 .wrapper {
@@ -296,6 +307,7 @@ nav a {
 .details span{
     display: block;
 }
+
 
 /* ------------ FOOTER ---------- */
 
