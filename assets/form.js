@@ -16,22 +16,22 @@ function userSelection() {
             let playSelect = e.target.className;
             playSelect = playSelect.split(' ')[1];
             document.querySelector('#plays').value = playSelect;
-            
+
             let previous = document.querySelector('#dates');
             previous.innerHTML = " ";
             displayAllPlays(playSelect);
 
             document.querySelectorAll(".feature").forEach((element) => element.classList.remove("selected"));
             e.target.parentElement.classList.add("selected");
-     
+
         });
     });
 
-// get the option that a user selects in a selector 
+    // get the option that a user selects in a selector 
     const selectElement = document.querySelector('#plays');
     selectElement.addEventListener('change', (e) => {
         playSelect = e.target.value;
-        
+
         let previous = document.querySelector('#dates');
         previous.innerHTML = " ";
         displayAllPlays(playSelect);
@@ -84,18 +84,17 @@ function displayAllPlays(userSelection) {
             // console.log(role);  //return strings with the names of roles    
             let dateAr = play.roles[role];
             // console.log(actors);   // return object of actors
-           
+
             // print the roles of the actors for each date
             for (actor in dateAr) {
                 let exist = dateAr[actor].some(arrVal => date === arrVal);
-              if (exist) {
+                if (exist) {
                     span.innerHTML = actor;
-                } else if (dateAr[actor].length === 0){
+                } else if (dateAr[actor].length === 0) {
                     span.innerHTML = actor;
                     console.log(actor);
                 }
             }
-
 
         }
 
