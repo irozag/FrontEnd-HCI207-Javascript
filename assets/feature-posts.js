@@ -32,6 +32,7 @@ titles.forEach(function (title) {
     if (!page.includes('reservation')){
     div.innerHTML = '<a href="play.html?'+title+'">'+shows[title].name+'</a>';
     }else {
+        div.classList.add(title);
         div.innerHTML = shows[title].name;
     }
     feature.appendChild(div);

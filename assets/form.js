@@ -10,30 +10,32 @@ plays.forEach(function (play) {
 
 
 
-function userSelection () {
+function userSelection() {
 
-const elements = document.querySelectorAll('.title');
-    elements.forEach((el) => { 
-       el.addEventListener('click',  (e) => {
-         let playSelect = e.target.textContent;
-        //  document.querySelector('#plays').value(playSelect);
-        console.log(playSelect);
+    const elements = document.querySelectorAll('.title');
+    playSelect = elements.forEach((el) => {
+        el.addEventListener('click', (e) => {
+            let playSelect = e.target.className;
+            playSelect = playSelect.split(' ')[1];
+            document.querySelector('#plays').value = playSelect;
+            displayAllPlays(playSelect);
         });
     });
 
 
-
-const selectElement = document.querySelector('#plays');
-selectElement.addEventListener('change', (e) => {
-      playSelect = e.target.value; 
-      console.log(playSelect);
-        return playSelect;
-});
-
-
-
+    const selectElement = document.querySelector('#plays');
+    selectElement.addEventListener('change', (e) => {
+        playSelect = e.target.value;
+        displayAllPlays(playSelect);
+        // return playSelect;
+    });
 
 }
 
-let playSelects = userSelection ();
-console.log(playSelects);
+function displayAllPlays (userSelection) {
+    console.log(userSelection);
+}
+
+userSelection();
+
+
