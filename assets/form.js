@@ -31,12 +31,14 @@ function userSelection() {
     const selectElement = document.querySelector('#plays');
     selectElement.addEventListener('change', (e) => {
         playSelect = e.target.value;
+        
         let previous = document.querySelector('#dates');
         previous.innerHTML = " ";
         displayAllPlays(playSelect);
 
-        document.querySelectorAll(".feature").forEach((element) => element.classList.remove("selected"));
-        e.target.parentElement.classList.toggle("selected");
+        let selected = document.querySelectorAll(".feature")
+        selected.forEach((element) => element.classList.remove("selected"));
+        // .parentElement.classList.toggle("selected");
 
     });
 
