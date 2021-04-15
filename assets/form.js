@@ -31,7 +31,10 @@ function userSelection() {
     const selectElement = document.querySelector('#plays');
     selectElement.addEventListener('change', (e) => {
         playSelect = e.target.value;
-
+        let url =  window.location.href;
+        // url +="?"+playSelect;
+        // window.location.href = url;
+        // console.log(url);
         let previous = document.querySelector('#dates');
         previous.innerHTML = " ";
         displayAllPlays(playSelect);
@@ -65,6 +68,7 @@ function displayAllPlays(userSelection) {
         input.classList.add('radio');
         input.setAttribute("type", "radio");
         input.setAttribute("id", date);
+        input.setAttribute("name","date");
         input.value = date;
         div.appendChild(input);
         // ενα label
@@ -92,7 +96,7 @@ function displayAllPlays(userSelection) {
                     span.innerHTML = actor;
                 } else if (dateAr[actor].length === 0) {
                     span.innerHTML = actor;
-                    console.log(actor);
+                    // console.log(actor);
                 }
             }
 
@@ -100,8 +104,7 @@ function displayAllPlays(userSelection) {
 
         wrapper.appendChild(div);
         datesDiv.appendChild(wrapper);
-        // datesDiv.appendChild(div);
-        // console.log(wrapper);   
+ 
     });
 
 
