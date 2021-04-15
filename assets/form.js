@@ -17,25 +17,28 @@ function userSelection() {
             playSelect = playSelect.split(' ')[1];
             document.querySelector('#plays').value = playSelect;
             
-            // let previous = document.querySelector('#dates');
-            // previous.innerHTML = " ";
-            // displayAllPlays(playSelect);
+            let previous = document.querySelector('#dates');
+            previous.innerHTML = " ";
+            displayAllPlays(playSelect);
+
+            document.querySelectorAll(".feature").forEach((element) => element.classList.remove("selected"));
+            e.target.parentElement.classList.add("selected");
      
         });
     });
 
-
+// get the option that a user selects in a selector 
     const selectElement = document.querySelector('#plays');
     selectElement.addEventListener('change', (e) => {
         playSelect = e.target.value;
-        // let previous = document.querySelector('#dates');
-        // previous.innerHTML = " ";
-        // displayAllPlays(playSelect);
+        let previous = document.querySelector('#dates');
+        previous.innerHTML = " ";
+        displayAllPlays(playSelect);
+
+        document.querySelectorAll(".feature").forEach((element) => element.classList.remove("selected"));
+        e.target.parentElement.classList.toggle("selected");
 
     });
-     let previous = document.querySelector('#dates');
-            previous.innerHTML = " ";
-            displayAllPlays(playSelect);
 
 }
 

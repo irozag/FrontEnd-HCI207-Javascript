@@ -262,7 +262,13 @@ nav a {
 
 .reserv .feature-photo {
     border: 30px solid transparent;
+    background-size: cover;
+    background-position: center;
 }
+.reserv  .selected .feature-photo {
+    border: 30px solid #2b8dce;
+}
+
 /* ------ play */
 
 .wrapper {
