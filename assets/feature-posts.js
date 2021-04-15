@@ -1,6 +1,6 @@
 const featureFeed = document.querySelector("#row");
 const page =  window.location.href;
-console.log(page);
+
 
 let titles = Object.keys(shows);
 
@@ -32,9 +32,7 @@ titles.forEach(function (title) {
     if (!page.includes('reservation')){
     div.innerHTML = '<a href="play.html?'+title+'">'+shows[title].name+'</a>';
     }else {
-        let play = shows[title];
         div.innerHTML = shows[title].name;
-        console.log(play);
     }
     feature.appendChild(div);
     console.log(shows[title]);

@@ -44,7 +44,7 @@ button:hover, .btn:hover {
     background-color:#0e7eb1;
 }
 
-input {
+input, select {
     padding: 1em;
     margin-left:0.5em;
     border:1px solid transparent;
@@ -145,7 +145,7 @@ nav a {
 .feature{
     width:28%;
     display: inline-block;
-    margin: 0 2.2em 6em 2.2em;
+    margin: 0 2.2em 3em 2.2em;
 
 }
 
@@ -237,6 +237,16 @@ nav a {
 .seat:hover {
     background-color: #000000;
 }
+
+#reservation {
+    text-align: center;
+    padding: 2em 0;
+    margin: 2.2em;
+    background-color: #ebebeb;
+}
+ 
+
+
 /* ------ play */
 
 .wrapper {

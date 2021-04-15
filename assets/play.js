@@ -23,6 +23,7 @@ document.querySelector(".dates").innerHTML = play.mounth;
 document.querySelector(".dates").innerHTML = play.mounth;
 document.querySelector(".production").innerHTML = play.production;
 document.querySelector(".description").innerHTML = play.description;
+document.querySelector(".feature-photo").style.backgroundImage = "url(" + play.photo + ")";
 
 // const crew = play['crew'];
     console.log(item);
