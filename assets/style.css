@@ -259,6 +259,10 @@ nav a {
 .role span {
     font-weight: normal;
 }
+
+.reserv .feature-photo {
+    border: 30px solid transparent;
+}
 /* ------ play */
 
 .wrapper {

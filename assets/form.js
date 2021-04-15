@@ -16,8 +16,11 @@ function userSelection() {
             let playSelect = e.target.className;
             playSelect = playSelect.split(' ')[1];
             document.querySelector('#plays').value = playSelect;
-            displayAllPlays(playSelect);
-            console.log(playSelect);
+            
+            // let previous = document.querySelector('#dates');
+            // previous.innerHTML = " ";
+            // displayAllPlays(playSelect);
+     
         });
     });
 
@@ -25,19 +28,23 @@ function userSelection() {
     const selectElement = document.querySelector('#plays');
     selectElement.addEventListener('change', (e) => {
         playSelect = e.target.value;
-        displayAllPlays(playSelect);
-        // return playSelect;
-        console.log(playSelect);
+        // let previous = document.querySelector('#dates');
+        // previous.innerHTML = " ";
+        // displayAllPlays(playSelect);
+
     });
+     let previous = document.querySelector('#dates');
+            previous.innerHTML = " ";
+            displayAllPlays(playSelect);
 
 }
 
 function displayAllPlays(userSelection) {
 
-     const wrapper = document.querySelector("#wrapper");
+    let wrapper = document.createElement("div");
+    wrapper.classList.add('wrapper');
 
-    let datesDiv = document.querySelector(".wrapper");
-    console.log(datesDiv);
+    // let datesDiv = document.querySelector(".wrapper");
 
     let play = shows[userSelection];
     let datesAr = play.dates;
@@ -60,7 +67,7 @@ function displayAllPlays(userSelection) {
         label.setAttribute("for", date);
         label.innerHTML = date;
         div.appendChild(label);
-   
+
         for (role in play.roles) {
             let divRole = document.createElement('div');
             divRole.classList.add('role');
@@ -74,14 +81,17 @@ function displayAllPlays(userSelection) {
             //  console.log(actors);   // return object of actors
             for (actor in actors) {
                 let exist = actors[actor].some(arrVal => date === arrVal);
-                console.log(exist);
+                // console.log(exist);
                 if (exist) {
                     span.innerHTML = actor;
                 }
             }
 
         }
+
         wrapper.appendChild(div);
+        datesDiv.appendChild(wrapper);
+        // datesDiv.appendChild(div);
         // console.log(wrapper);   
     });
 
