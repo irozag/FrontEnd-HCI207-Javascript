@@ -35,6 +35,7 @@ function userSelection() {
         let url =  window.location.href;
         let previous = document.querySelector('#dates');
         previous.innerHTML = " ";
+        previous.classList.remove("dateSelected");
         displayAllPlays(playSelect);
 
         let selected = document.querySelectorAll(".feature")
@@ -119,8 +120,8 @@ function formApplication (id) {
     let dateSelected = document.querySelector("#"+id);
     dateSelected.parentElement.style.display = "block";
 
-    let wrapper = document.querySelector(".rWrapper");
-    wrapper.style.width = "20%";
+    let dates = document.querySelector("#dates");
+    dates.classList.add("dateSelected");
     // document.querySelector("#dates").appendChild(dateSelected);
 
 }

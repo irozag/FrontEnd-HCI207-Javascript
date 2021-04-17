@@ -276,6 +276,17 @@ nav a {
     border: 30px solid #2b8dce;
 }
 
+.personalDetails {
+    grid-column: 2 / 11;
+}
+#reservation .dates {
+    grid-column: 1 /11;
+}
+
+#reservation .dates.dateSelected {
+    grid-column: 1 /2;
+}
+
 /* ------ play */
 
 .wrapper {
