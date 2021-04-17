@@ -53,12 +53,12 @@ function createCalendar(month) {
 
 function addplays(month, plays) {
 
-  function popover(){
-    let date = document.querySelectorAll(".calendarDate");
-    console.log(date[this]);
-  }
+// function popover(){
+//     let date = document.querySelectorAll(".calendarDate");
+//     console.log(date[this]);
+//   }
 
-  popover();
+// popover();
   // function removepop() {
   //   let pop = document.querySelector(".pop");
   //   pop.remove();
@@ -86,7 +86,7 @@ function addplays(month, plays) {
       // div.appendChild(pop);
     
     });
-    console.log(plays);
+    // console.log(plays);
   });
 
 

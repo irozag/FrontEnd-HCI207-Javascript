@@ -14,6 +14,7 @@ function userSelection() {
     playSelect = elements.forEach((el) => {
         el.addEventListener('click', (e) => {
             let playSelect = e.target.className;
+            //  επιλεξε τη μία κλάση απο τις δύο 
             playSelect = playSelect.split(' ')[1];
             document.querySelector('#plays').value = playSelect;
 
@@ -32,9 +33,6 @@ function userSelection() {
     selectElement.addEventListener('change', (e) => {
         playSelect = e.target.value;
         let url =  window.location.href;
-        // url +="?"+playSelect;
-        // window.location.href = url;
-        // console.log(url);
         let previous = document.querySelector('#dates');
         previous.innerHTML = " ";
         displayAllPlays(playSelect);
@@ -60,20 +58,21 @@ function displayAllPlays(userSelection) {
         // φτιαξε ενα radio button
         let div = document.createElement('div');
         div.classList.add('date');
+        let dateId = "dateId"+date.replaceAll("-","");
 
         // φτιαξε ενα radio button
         let input = document.createElement('input');
         input.classList.add('radio');
         input.setAttribute("type", "radio");
-        input.setAttribute("id", date);
+        input.setAttribute("id", dateId);
         input.setAttribute("name","date");
-        input.addEventListener("click", formApplication ());
+        input.addEventListener("click", (e) => formApplication (e.target.id));
 
         input.value = date;
         div.appendChild(input);
         // φτιάξε ενα label
         let label = document.createElement('label');
-        label.setAttribute("for", date);
+        label.setAttribute("for", dateId);
         label.innerHTML = date;
         div.appendChild(label);
 
@@ -109,10 +108,18 @@ function displayAllPlays(userSelection) {
 
 }
 
-
-
 userSelection();
 
-function formApplication () {
-   
+function formApplication (id) {
+//    console.log("Hello");
+   let d = document.querySelectorAll(".date");
+   console.log(id);
+    for (i=0; i<d.length; i++) {
+        d[i].style.display = "none";
+    }
+    id = "#"+id;
+    console.log(id);
+    let dateSelected = document.querySelector(id);
+    dateSelected.parentElement.style.display = "block";
+
 }

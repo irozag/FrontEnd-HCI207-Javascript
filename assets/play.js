@@ -84,75 +84,7 @@ for (person in crew) {
 
 
 
-var text;
-let details = document.querySelectorAll(".details");
-for (i = 0; i < details.length; i++) {
-
-}
 
 
-
-
-
-
-
-// document.querySelector("#conductor").innerHTML = crew.conductor;
-// document.querySelector("#director").innerHTML = crew.director;
-// document.querySelector("#associate").innerHTML = crew['associate director'];
-// document.querySelector("#sets").innerHTML = crew.sets;
-// document.querySelector("#costumes").innerHTML = crew.costumes;
-// document.querySelector("#choreographer").innerHTML = crew.choreographer;
-// document.querySelector("#lighting").innerHTML = crew['lighting designer'];
-// //  document.querySelector("#video").innerHTML = crew[/(video)*(designer)/];
-// document.querySelector("#programmer").innerHTML = crew['programmer video'];
-// document.querySelector("#chorus").innerHTML = crew['chorus master'];
-// document.querySelector("#chorus").innerHTML = crew['chorus master'];
-
-
-
-    // <div class="details">Μαέστρος <span id="conductor"></span></div> 
-    // <div class="details">Σκηνοθέτης <span id="director"></span></div> 
-    // <div class="details">Βοηθός Σκηνοθέτη <span id="associate"></span></div> 
-    // <div class="details">σετ <span id="sets"></span></div> 
-    // <div class="details">Κοστούμια <span id="costumes"></span></div> 
-    // <div class="details">Χορογράφος <span id="choreographer"></span></div> 
-    // <div class="details">Σχεδιασμός φωτισμού <span id="lighting"></span></div> 
-    // <div class="details">Σχεδιασμός βίντεο <span id="video"></span></div> 
-    // <div class="details">Προγραμματισμός βίντεο <span id="programmer"></span></div> 
-    // <div class="details">Χωροδός<span id="chorus"></span></div> 
-    // console.log (element);
-    // let div = document.createElement('div');
-    // div.classList.add('details');
-    // let span = document.createElement("span");
-    // span.innerHTML = crew[element];
-    // div.appendChild(span);
-    // document.querySelector(".overlay").appendChild(div);
-
-
-
-// document.querySelector("#conductor").innerHTML = crew.conductor;
-// document.querySelector("#director").innerHTML = crew.director;
-// document.querySelector("#associate").innerHTML = crew['associate director'];
-// document.querySelector("#sets").innerHTML = crew.sets;
-// document.querySelector("#costumes").innerHTML = crew.costumes;
-// document.querySelector("#choreographer").innerHTML = crew.choreographer;
-// document.querySelector("#lighting").innerHTML = crew['lighting designer'];
-// //  document.querySelector("#video").innerHTML = crew[/(video)*(designer)/];
-// document.querySelector("#programmer").innerHTML = crew['programmer video'];
-// document.querySelector("#chorus").innerHTML = crew['chorus master'];
-// document.querySelector("#chorus").innerHTML = crew['chorus master'];
-
-
-// for ( var item in play['crew']){
-//     var parentNode = document.querySelector('.crew');
-//     var newElement = document.createElement("div");
-//     newElement.innerHTML = theShow['crew'][item];
-//     newElement.classList.add("role-name");
-//     var type = document.createElement("SPAN");
-//     type.innerHTML = getName(item);
-//     type.classList.add("role");
-//     newElement.appendChild(type);
-//     parentNode.appendChild(newElement);
-//   }
 
 
