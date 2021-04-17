@@ -276,8 +276,10 @@ nav a {
     border: 30px solid #2b8dce;
 }
 
-.personalDetails {
+.personalDetails, .positions {
     grid-column: 2 / 11;
+    padding:10px 0 20px;
+    display: none;
 }
 #reservation .dates {
     grid-column: 1 /11;
@@ -285,7 +287,20 @@ nav a {
 
 #reservation .dates.dateSelected {
     grid-column: 1 /2;
+    border-right: 1px solid #aaa;
 }
+
+#userSelection {
+    padding:20px;
+}
+.namePlay {
+    font-size: 30px;
+}
+
+#reservation input, #ticket {
+    margin-right: 20px;
+}   
+
 
 /* ------ play */
 

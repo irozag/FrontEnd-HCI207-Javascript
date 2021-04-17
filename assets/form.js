@@ -23,8 +23,10 @@ function userSelection() {
             // σβήσε τις προηγουμενες επιλογές
             let previous = document.querySelector('#dates');
             previous.innerHTML = " ";
+            let print = document.querySelector("#userSelection");
+            print.innerHTML = " ";
 
-            // printSelection(playSelect);
+            printSelection(playSelect);
             displayAllPlays(playSelect);
 
             //βάλε μπορτερ στην φωτογραφία για να φαίνεται επιλεγμένη   
@@ -43,6 +45,8 @@ function userSelection() {
         let previous = document.querySelector('#dates');
         previous.innerHTML = " ";
         previous.classList.remove("dateSelected");
+        let print = document.querySelector("#userSelection");
+        print.innerHTML = " ";
  
         printSelection(playSelect);
         displayAllPlays(playSelect);
@@ -145,6 +149,9 @@ function formApplication(id) {
     for (i = 0; i < d.length; i++) {
         d[i].style.display = "none";
     }
+    let view = document.querySelector(".positions");
+    view.style.display = "block";
+
     let dateSelected = document.querySelector("#" + id);
     dateSelected.parentElement.style.display = "block";
 
