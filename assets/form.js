@@ -40,14 +40,14 @@ function userSelection() {
     const selectElement = document.querySelector('#plays');
     selectElement.addEventListener('change', (e) => {
         playSelect = e.target.value;
-        
+
         // σβήσε τις προηγουμενες επιλογές
         let previous = document.querySelector('#dates');
         previous.innerHTML = " ";
         previous.classList.remove("dateSelected");
         let print = document.querySelector("#userSelection");
         print.innerHTML = " ";
- 
+
         printSelection(playSelect);
         displayAllPlays(playSelect);
 
@@ -60,7 +60,7 @@ function userSelection() {
 
 }
 
-function printSelection(userSelection){
+function printSelection(userSelection) {
     let print = document.querySelector("#userSelection");
     let play = shows[userSelection];
 
@@ -99,7 +99,7 @@ function displayAllPlays(userSelection) {
         input.setAttribute("type", "radio");
         input.setAttribute("id", dateId);
         input.setAttribute("name", "date");
-        input.addEventListener("click", (e) => formApplication(e.target.id));
+        input.addEventListener("click", (e) => selectSeat(e.target.id));
 
         input.value = date;
         div.appendChild(input);
@@ -143,14 +143,18 @@ function displayAllPlays(userSelection) {
 
 userSelection();
 
-function formApplication(id) {
-    //    console.log("Hello");
+function selectSeat(id) {
+    //μετακινησε στο πλάι τις επιλογές 
     let d = document.querySelectorAll(".date");
     for (i = 0; i < d.length; i++) {
         d[i].style.display = "none";
     }
+
+    //εμφάνισε τις θέσεις
     let view = document.querySelector(".positions");
     view.style.display = "block";
+
+    createSeatMap();
 
     let dateSelected = document.querySelector("#" + id);
     dateSelected.parentElement.style.display = "block";
@@ -160,3 +164,25 @@ function formApplication(id) {
 
 
 }
+
+function createSeatMap() {
+    const map = document.querySelector("#map");
+    let seat = "<tbody>";
+    let counter = 0;
+    console.log(seat);
+    for (i = 0; i < 10; i++) {
+        seat += "<tr>";
+        seat += "<th scope='row'>σειρά: "+i+"</th>"
+        counter++;
+        for (z = 0; z < 50; z++) {
+            seat += "<td class='seat' title=" + counter + "></td>"
+            counter++;
+        }
+        seat += "</tr>"
+    }
+
+    seat += "</tbody>"
+
+    map.innerHTML = seat;
+}
+{/* <th scope="row">09:00 - 11:00</th> */}
