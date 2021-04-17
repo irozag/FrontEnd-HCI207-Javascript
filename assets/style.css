@@ -320,9 +320,12 @@ nav a {
 }
 .details {
     margin: 20px;
+    color:#c3c3c3;
 }
 .details span{
     display: block;
+    font-size:18px;
+    color:#fff;
 }
 
 
