@@ -113,13 +113,14 @@ userSelection();
 function formApplication (id) {
 //    console.log("Hello");
    let d = document.querySelectorAll(".date");
-   console.log(id);
     for (i=0; i<d.length; i++) {
         d[i].style.display = "none";
     }
-    id = "#"+id;
-    console.log(id);
-    let dateSelected = document.querySelector(id);
+    let dateSelected = document.querySelector("#"+id);
     dateSelected.parentElement.style.display = "block";
+
+    let wrapper = document.querySelector(".rWrapper");
+    wrapper.style.width = "20%";
+    // document.querySelector("#dates").appendChild(dateSelected);
 
 }
