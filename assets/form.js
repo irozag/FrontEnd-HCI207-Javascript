@@ -8,6 +8,9 @@ plays.forEach(function (play) {
     option.value = play;
     if (play == fromOtherPage) {
         option.setAttribute('selected', true);
+        //εμφανισε την επιλογή και τις διαθέσημες ημερομινίες
+        printSelection(fromOtherPage);
+        displayAllPlays(fromOtherPage);
     }
     option.innerHTML = shows[play].name;
     document.querySelector('#plays').appendChild(option);
@@ -50,30 +53,30 @@ function userTitleSelection() {
 }
 
 function userOptionSelecton() {
-        // Αν ο χρηστης επιλέξει κάποια επιλογή απο τον επιλογέα
-        const selectElement = document.querySelector('#plays');
-        selectElement.addEventListener('change', (e) => {
-            let playSelect = e.target.value;
-    
-            // σβήσε τις προηγουμενες επιλογές
-            let previous = document.querySelector('#dates');
-            previous.innerHTML = " ";
-            previous.classList.remove("dateSelected");
-            let print = document.querySelector("#userSelection");
-            print.innerHTML = " ";
-            hideMap();
-    
-            //εμφανισε την επιλογή και τις διαθέσημες ημερομινίες
-            printSelection(playSelect);
-            displayAllPlays(playSelect);
-    
-            //βάλε μπορντερ στην φωτογραφία για να φαίνεται επιλεγμένη
-            let selected = document.querySelectorAll(".feature")
-            selected.forEach((element) => element.classList.remove("selected"));
-            // .parentElement.classList.toggle("selected");
-    
-        });
-    
+    // Αν ο χρηστης επιλέξει κάποια επιλογή απο τον επιλογέα
+    const selectElement = document.querySelector('#plays');
+    selectElement.addEventListener('change', (e) => {
+        let playSelect = e.target.value;
+ 
+        // σβήσε τις προηγουμενες επιλογές
+        let previous = document.querySelector('#dates');
+        previous.innerHTML = " ";
+        previous.classList.remove("dateSelected");
+        let print = document.querySelector("#userSelection");
+        print.innerHTML = " ";
+        hideMap();
+
+        //εμφανισε την επιλογή και τις διαθέσημες ημερομινίες
+        printSelection(playSelect);
+        displayAllPlays(playSelect);
+
+        //βάλε μπορντερ στην φωτογραφία για να φαίνεται επιλεγμένη
+        let selected = document.querySelectorAll(".feature")
+        selected.forEach((element) => element.classList.remove("selected"));
+        // .parentElement.classList.toggle("selected");
+
+    });
+
 }
 
 function printSelection(userSelection) {
@@ -158,7 +161,7 @@ function displayAllPlays(userSelection) {
 }
 
 userTitleSelection();
-userOptionSelecton(); 
+userOptionSelecton();
 createSeatMap();
 
 function selectSeat(id) {
@@ -238,7 +241,7 @@ function seatNumber(number, stage) {
     const seat = document.querySelectorAll('.seat');
 
     for (i = 0; i < seat.length; i++) {
-        console.log ( seat[i].id);
+        console.log(seat[i].id);
         if (seat[i].id == seatId) {
             seat[i].classList.add("selected");
         } else {
@@ -247,7 +250,7 @@ function seatNumber(number, stage) {
 
     }
 
-     //εμφανίζω τα υπολοιπα στοιχεία της φορμας
+    //εμφανίζω τα υπολοιπα στοιχεία της φορμας
     const view = document.querySelector(".personalDetails");
     view.style.display = "block";
 
