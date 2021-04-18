@@ -167,6 +167,7 @@ function selectSeat(id) {
 
 function createSeatMap() {
     const map = document.querySelector("#map");
+
     let seat = "<tbody>";
     let counter = 0;
     console.log(seat);
@@ -175,14 +176,39 @@ function createSeatMap() {
         seat += "<th scope='row'>σειρά: "+i+"</th>"
         counter++;
         for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' title=" + counter + "></td>"
+            seat += "<td class='seat' onclick='seatNumber("+counter+",1);' title=" + counter + "></td>"
             counter++;
         }
         seat += "</tr>"
     }
-
     seat += "</tbody>"
-
     map.innerHTML = seat;
+
+    //second map 
+    const map2 = document.querySelector("#map2");
+    seat = "<tbody>";
+    counter = 0;
+    console.log(seat);
+    for (i = 0; i < 5; i++) {
+        seat += "<tr>";
+        seat += "<th scope='row'>σειρά: "+i+"</th>"
+        counter++;
+        for (z = 0; z < 50; z++) {
+            seat += "<td class='seat' onclick='seatNumber("+counter+",2);' title=" + counter + "></td>"
+            counter++;
+        }
+        seat += "</tr>"
+    }
+    seat += "</tbody>"
+    map2.innerHTML = seat;
+    
 }
-{/* <th scope="row">09:00 - 11:00</th> */}
+
+function seatNumber(number,stage) {
+    console.log(number);
+    console.log(stage);
+    return number;
+}
+
+// let seats = document.querySelectorAll(".seat");
+// seat[1].addEventListener("click", (e) =>  conlog.log(e.target.title) );

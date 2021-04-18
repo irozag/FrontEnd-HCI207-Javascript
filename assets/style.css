@@ -238,6 +238,9 @@ nav a {
     height: 10px;
     background-color: #7602ce;
 }
+#map2 .seat {
+    background-color: #10bbc7;
+}
 
 .seat:hover {
     background-color: #000000;
@@ -297,11 +300,11 @@ nav a {
     font-size: 30px;
 }
 
-#reservation input, #ticket {
+#reservation input, #ticket, #stage {
     margin-right: 20px;
 }   
 
-#map {
+.map {
     margin: 20px auto;
 }
 
