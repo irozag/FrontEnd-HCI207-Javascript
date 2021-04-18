@@ -67,7 +67,7 @@ function addplays(month, plays) {
       let div = document.createElement('div');
       div.classList.add('textlink');
       // div.innerHTML = "<a href='/play.html?" + play + "'>" + shows[play].name + "</a>";
-      div.innerHTML = "<a href='/reservation.html?" + play + "'>" + shows[play].name + "</a>";
+      div.innerHTML = "<a href='/reservationgit.html?" + play + "'>" + shows[play].name + "</a>";
       td.appendChild(div);
       let pop = document.createElement('div');
       pop.classList.add("pop");
