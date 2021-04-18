@@ -53,25 +53,4 @@ if (titles.length > 3) {
     featurefeed.appendChild(button);
 }
 
-/*
-
-let dates = featureFeed.querySelectorAll('.dates');
-let title = featureFeed.querySelectorAll('.title');
-let photo = featureFeed.querySelectorAll('.feature-photo');
-let room = featureFeed.querySelectorAll('.room');
-let composer = featureFeed.querySelectorAll('.composer');
-let i=0;
-
-titles.forEach(function(titles){
-    console.log(dates[i]);
-    dates[i].innerHTML =  shows[titles].mounth ;
-    title[i].innerHTML =  shows[titles].name ;
-    room[i].innerHTML =  shows[titles].room ;
-    photo[i].style.backgroundImage = "url("+shows[titles].photo+")";
-    composer[i].innerHTML =  shows[titles].composer ;
-    i++;
-
-});
-
- */
 
