@@ -266,6 +266,10 @@ nav a {
     text-align: left;
     padding-top:20px;
 }
+.date label {
+    font-size: 20px;
+    line-height: 2px;
+}
 .role {
     flex-wrap: wrap;
     font-weight: bold;
@@ -307,7 +311,10 @@ nav a {
 
 #reservation input, #ticket, #stage {
     margin-right: 20px;
-}   
+}  
+#reservation input[type=radio]{
+    margin-right: 8px;
+} 
 
 .map {
     margin: 20px auto;
@@ -331,7 +338,7 @@ nav a {
 
 .play.main{
     grid-area:main;
-    margin:4em;
+    margin: 2em 4em;
     height: 80%;
 }
 .play.photo .feature-photo{
@@ -341,7 +348,7 @@ nav a {
     background-size: cover;
     min-height: 96%;
 }
-.play .composser {
+.play  .composer {
     font-size: 20px;
 }
 
@@ -349,7 +356,7 @@ nav a {
     margin-top:-30px;
     background: #000000a8;
     color: #fff;
-    padding: 20px;
+    padding: 50px 20px;
     grid-row: 1;
     grid-column: 8/ 9;
     justify-self: flex-start;
@@ -369,7 +376,7 @@ nav a {
     margin-right:10px;
 }
 
-.actors, .month {
+.actors, .month, .production {
     font-size:18px;
     font-weight: bold;
 }
