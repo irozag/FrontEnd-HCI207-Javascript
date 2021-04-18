@@ -128,6 +128,7 @@ function displayAllPlays(userSelection) {
         label.innerHTML = date;
         div.appendChild(label);
 
+        //δημιουργησε το div για κάθε τιτλο/ρόλο
         for (role in play.roles) {
             let divRole = document.createElement('div');
             divRole.classList.add('role');
@@ -136,11 +137,11 @@ function displayAllPlays(userSelection) {
             let span = document.createElement('span');
             span.classList.add('actor');
             divRole.appendChild(span);
-            // console.log(role);  //return strings with the names of roles    
-            let dateAr = play.roles[role];
-            // console.log(actors);   // return object of actors
 
-            // print the roles of the actors for each date
+           // φτιαξε ένα αντικείμενο με τους ηθοποιούς και τον αντιστοιχο πινακα με τις ημερομινιες που παιζουν 
+            let dateAr = play.roles[role];
+
+            // για κάθε ηθοποιό αν υπάρχει μεσα ημερομινία που αντιστοιχεί με τη ημερομινια (date) που είνα σε αυτο το forEach
             for (actor in dateAr) {
                 let exist = dateAr[actor].some(arrVal => date === arrVal);
                 if (exist) {

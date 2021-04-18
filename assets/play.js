@@ -77,4 +77,13 @@ goToReservations(item);
 
 
 
+function printActors (play) {
+    let roles = play.roles;
+    for (role in roles) {
+        for(actor in roles[role]) {
+            document.querySelector("#actors").innerHTML += actor+ ", ";
+        }
+    }
+}
 
+printActors(play);
