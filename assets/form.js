@@ -207,16 +207,20 @@ function createSeatMap() {
 }
 
 function seatNumber(number, stage) {
-    let seat = document.querySelector("#seatSelection")
-    // let input = document.createElement('input');
+    const seat = document.querySelector("#seatSelection")
+    const input = document.querySelector('#stage');
     // input.classList.add('seatNumber');
     // input.name = "seatNumber";
     // input.value = number; 
 
     if (stage == 1) {
-        seat.innerHTML = "Πλατεία: " + number
+        // seat.innerHTML = "Πλατεία: " + number;
+        seat.value = number;
+        input.value = 'square';
     } else {
-        seat.innerHTML = "Eξώστης: " + number
+        // seat.innerHTML = "Eξώστης: " + number;
+        seat.value = number;
+        input.value = 'balcony';
     }
     // seat.appendChild(input);
 
