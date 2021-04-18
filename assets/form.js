@@ -176,7 +176,7 @@ function createSeatMap() {
         seat += "<th scope='row'>σειρά: "+i+"</th>"
         counter++;
         for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber("+counter+",1);' title=" + counter + " id='s"+ counter + "'></td>"
+            seat += "<td class='seat' onclick='seatNumber("+counter+",1);' title=" + counter + "></td>"
             counter++;
         }
         seat += "</tr>"
@@ -194,7 +194,7 @@ function createSeatMap() {
         seat += "<th scope='row'>σειρά: "+i+"</th>"
         counter++;
         for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber("+counter+",2);' title=" + counter + " id='s"+ counter + "'></td>"
+            seat += "<td class='seat' onclick='seatNumber("+counter+",2);' title=" + counter + " ></td>"
             counter++;
         }
         seat += "</tr>"
@@ -205,22 +205,13 @@ function createSeatMap() {
 }
 
 function seatNumber(number,stage) {
-    // console.log(number);
-    // console.log(stage);
-    let seat= document.querySelector("#s"+number);
-    seat.style.backgroundColor = "#000";
-    return number;
+    let seat = document.querySelector("#seatSelection")
+    if (stage==1) {
+        seat.innerHTML = "Πλατεία: "+number
+    }else {
+        seat.innerHTML = "Eξώστης: "+number
+    }
 }
 
-
 // let seats = document.querySelectorAll(".seat");
-// for (i=0; i<seats.length; i++) {
-//     seat[i].addEventListener("click", (e) => function (e){
-//         e.target.toggle("selected");
-//     });
-    
-// }
-let seats = document.querySelectorAll(".seat");
-seats.forEach((element) => element.addEventListener("click", (element) => element.target.add("selected")));
-
-// .parentElement.classList.toggle("selected");
+// seats.forEach((element) => element.addEventListener("click", (element) => element.target.add("selected")));
