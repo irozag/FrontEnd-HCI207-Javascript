@@ -6,16 +6,20 @@ console.log(item);
 document.querySelector(".room").innerHTML = play.room;
 document.querySelector(".title").innerHTML = play.name;
 document.querySelector(".composer").innerHTML = play.composer;
-document.querySelector(".dates").innerHTML = play.mounth;
-document.querySelector(".dates").innerHTML = play.mounth;
+document.querySelector(".month").innerHTML = play.mounth;
 document.querySelector(".production").innerHTML = play.production;
 document.querySelector(".description").innerHTML = play.description;
 document.querySelector(".feature-photo").style.backgroundImage = "url(" + play.photo + ")";
 
+
+let dates = play.dates;
+dates.forEach(date => {
+    document.querySelector(".dates").innerHTML += date+", ";
+});
+
+
+
 const crew = play['crew']
-
-
-
 for (person in crew) {
     //     if(crew.person != undefined) 
     // console.log(details[i]);
@@ -76,7 +80,7 @@ function goToReservations(item) {
 goToReservations(item);
 
 
-
+//εκτυπωσε τους ηθοποιούς 
 function printActors (play) {
     let roles = play.roles;
     for (role in roles) {
