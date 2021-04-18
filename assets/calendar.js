@@ -80,10 +80,10 @@ function addplays(month, plays) {
       //adiv.addEventListener('mouseover', popover);
      // div.addEventListener('mouseout', removepop);
       td.appendChild(div);
-      // let pop = document.createElement('div');
-      // pop.classList.add("pop");
-      // pop.textContent = "test"
-      // div.appendChild(pop);
+      let pop = document.createElement('div');
+      pop.classList.add("pop");
+      pop.textContent = "test"
+      div.appendChild(pop);
     
     });
     // console.log(plays);

@@ -58,7 +58,7 @@ for (person in crew) {
     }
     let div = document.createElement("div");
     div.classList.add("details");
-    div.innerHTML= text;
+    div.innerHTML = text;
     let span = document.createElement("span");
     span.id = person;
     span.innerHTML = crew[person];
@@ -68,8 +68,12 @@ for (person in crew) {
 
 }
 
+function goToReservations(item) {
+    let link = "/reservation.html?" + item;
+    document.querySelector("#reserve").setAttribute("href", link);
+}
 
-
+goToReservations(item);
 
 
 
