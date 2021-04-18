@@ -17,7 +17,7 @@ plays.forEach(function (play) {
 
 
 
-function userSelection() {
+function userTitleSelection() {
 
     //Αν ο χρηστης επιλέξει κάποιο τίτλο απο τις εικόνες
     const elements = document.querySelectorAll('.title');
@@ -47,30 +47,33 @@ function userSelection() {
         });
     });
 
-    // Αν ο χρηστης επιλέξει κάποια επιλογή απο τον επιλογέα
-    const selectElement = document.querySelector('#plays');
-    selectElement.addEventListener('change', (e) => {
-        playSelect = e.target.value;
+}
 
-        // σβήσε τις προηγουμενες επιλογές
-        let previous = document.querySelector('#dates');
-        previous.innerHTML = " ";
-        previous.classList.remove("dateSelected");
-        let print = document.querySelector("#userSelection");
-        print.innerHTML = " ";
-        hideMap();
-
-        //εμφανισε την επιλογή και τις διαθέσημες ημερομινίες
-        printSelection(playSelect);
-        displayAllPlays(playSelect);
-
-        //βάλε μπορντερ στην φωτογραφία για να φαίνεται επιλεγμένη
-        let selected = document.querySelectorAll(".feature")
-        selected.forEach((element) => element.classList.remove("selected"));
-        // .parentElement.classList.toggle("selected");
-
-    });
-
+function userOptionSelecton() {
+        // Αν ο χρηστης επιλέξει κάποια επιλογή απο τον επιλογέα
+        const selectElement = document.querySelector('#plays');
+        selectElement.addEventListener('change', (e) => {
+            let playSelect = e.target.value;
+    
+            // σβήσε τις προηγουμενες επιλογές
+            let previous = document.querySelector('#dates');
+            previous.innerHTML = " ";
+            previous.classList.remove("dateSelected");
+            let print = document.querySelector("#userSelection");
+            print.innerHTML = " ";
+            hideMap();
+    
+            //εμφανισε την επιλογή και τις διαθέσημες ημερομινίες
+            printSelection(playSelect);
+            displayAllPlays(playSelect);
+    
+            //βάλε μπορντερ στην φωτογραφία για να φαίνεται επιλεγμένη
+            let selected = document.querySelectorAll(".feature")
+            selected.forEach((element) => element.classList.remove("selected"));
+            // .parentElement.classList.toggle("selected");
+    
+        });
+    
 }
 
 function printSelection(userSelection) {
@@ -154,7 +157,8 @@ function displayAllPlays(userSelection) {
 
 }
 
-userSelection();
+userTitleSelection();
+userOptionSelecton(); 
 createSeatMap();
 
 function selectSeat(id) {
