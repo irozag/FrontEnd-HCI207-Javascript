@@ -1,18 +1,27 @@
 var plays = Object.keys(shows);
-const datesDiv = document.querySelector("#dates");
 
+const fromOtherPage = window.location.href.split("?")[1];
+
+//δημιουργησε τoν επιλογέα των παραστασων
 plays.forEach(function (play) {
     let option = document.createElement('option');
     option.value = play;
+    if (play == fromOtherPage) {
+        option.setAttribute('selected', true);
+    }
     option.innerHTML = shows[play].name;
     document.querySelector('#plays').appendChild(option);
+    // if (fromOtherPage != null) {
+
 });
+
+
 
 function userSelection() {
 
     //Αν ο χρηστης επιλέξει κάποιο τίτλο απο τις εικόνες
     const elements = document.querySelectorAll('.title');
-    playSelect = elements.forEach((el) => {
+    let playSelect = elements.forEach((el) => {
         el.addEventListener('click', (e) => {
             let playSelect = e.target.className;
 
@@ -83,7 +92,7 @@ function printSelection(userSelection) {
 
 
 function displayAllPlays(userSelection) {
-
+    const datesDiv = document.querySelector("#dates");
     let wrapper = document.createElement("div");
     wrapper.classList.add('rWrapper');
 
