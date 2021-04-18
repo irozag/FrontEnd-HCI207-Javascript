@@ -2,20 +2,6 @@ const item = window.location.href.split("?")[1];
 const play = shows[item];
 console.log(item);
 
-// let text = /(video)*(designer)/;
-
-// function getMatchingPropertyNames(expression,object){
-//     var result = [];
-//    let express = new RegExp(expression, 'i');
-//   console.log(express);
-//     for (var property in object) {
-//      console.log(express.test(property));
-//             if (express.test(property)) {  
-//                 result.push(property);
-//             }
-//     }
-//     return result;
-// };
 
 document.querySelector(".room").innerHTML = play.room;
 document.querySelector(".title").innerHTML = play.name;

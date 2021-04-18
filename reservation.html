@@ -6,6 +6,7 @@
     <script src="/assets/shows.js" defer></script>
     <script src="/assets/feature-posts.js" defer></script>
     <script src="/assets/form.js" defer></script>
+    <!-- <script src="/assets/submit.js" defer></script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -49,10 +50,11 @@
 
                 <div class="positions">
                     <label for="ticket">Τοποθεσία:</label>
-                    <select id="stage" name="stage" disabled>
+                    <!-- <select id="stage" name="stage" disabled>
                         <option value="square">Πλατεία</option>
                         <option value="balcony">Εξωστής</option>
-                    </select>
+                    </select> -->
+                    <input type="text" name="stage" id="stage" disabled size="7">
                     <label for="seat">Θέση:</label>
                     <input type="text" name="seat" id="seatSelection" disabled size="5">
                     <label for="ticket">Εισητήριο:</label>
@@ -67,13 +69,15 @@
                 <div class="personalDetails">
 
                     <label for="name">Όνομα:</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}" placeholder="Type your name" required>
                     <label for="surname">Επίθετο:</label>
-                    <input type="text" name="surname" id="surname">
+                    <input type="text" name="surname" id="surname" pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}"  placeholder="Type your surname" required>
 
                     <label for="email">Ηλεκτρονικό Ταχυδρομείο:</label>
-                    <input type="text" name="email" id="email">
+                    <input type="email" name="email" id="email" placeholder="email@example.com" required>
+                    <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
                     <input type="submit" value="Κράτηση">
+                    <!-- <output id="message"></output> -->
                 </div>
 
             </div>

@@ -247,6 +247,10 @@ nav a {
     background-color: #000000;
 }
 
+.seat.selected, #map2 .seat.selected {
+    background-color: #000000;
+}
+
 #reservation {
     text-align: center;
     padding: 2em;

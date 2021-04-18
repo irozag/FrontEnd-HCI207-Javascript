@@ -178,7 +178,7 @@ function createSeatMap() {
         seat += "<th scope='row'>σειρά: " + i + "</th>"
         counter++;
         for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber(" + counter + ",1);' title=" + counter + "></td>"
+            seat += "<td class='seat' onclick='seatNumber(" + counter + ",1);' id='S" + counter + "'></td>"
             counter++;
         }
         seat += "</tr>"
@@ -196,7 +196,7 @@ function createSeatMap() {
         seat += "<th scope='row'>σειρά: " + i + "</th>"
         counter++;
         for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber(" + counter + ",2);' title=" + counter + " ></td>"
+            seat += "<td class='seat' onclick='seatNumber(" + counter + ",2);' id='E" + counter + "' ></td>"
             counter++;
         }
         seat += "</tr>"
@@ -207,28 +207,37 @@ function createSeatMap() {
 }
 
 function seatNumber(number, stage) {
-    const seat = document.querySelector("#seatSelection")
+    const seatInput = document.querySelector("#seatSelection")
     const input = document.querySelector('#stage');
-    // input.classList.add('seatNumber');
-    // input.name = "seatNumber";
-    // input.value = number; 
 
     if (stage == 1) {
-        // seat.innerHTML = "Πλατεία: " + number;
-        seat.value = number;
-        input.value = 'square';
+        seatInput.value = number;
+        input.value = 'Πλατεία';
+        idLetter = "S"
     } else {
-        // seat.innerHTML = "Eξώστης: " + number;
-        seat.value = number;
-        input.value = 'balcony';
+        seatInput.value = number;
+        input.value = 'Eξώστης';
+        idLetter = "E"
     }
-    // seat.appendChild(input);
 
+    //βάζω ένα selected class για την επιλεγμενη θέση
+    let seatId = idLetter + number;
+    const seat = document.querySelectorAll('.seat');
+
+    for (i = 0; i < seat.length; i++) {
+        console.log ( seat[i].id);
+        if (seat[i].id == seatId) {
+            seat[i].classList.add("selected");
+        } else {
+            seat[i].classList.remove("selected");
+        }
+
+    }
+
+     //εμφανίζω τα υπολοιπα στοιχεία της φορμας
     const view = document.querySelector(".personalDetails");
     view.style.display = "block";
 
-    console.log(number);
-    console.log(stage);
 }
 
 
