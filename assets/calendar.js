@@ -53,16 +53,6 @@ function createCalendar(month) {
 
 function addplays(month, plays) {
 
-// function popover(){
-//     let date = document.querySelectorAll(".calendarDate");
-//     console.log(date[this]);
-//   }
-
-// popover();
-  // function removepop() {
-  //   let pop = document.querySelector(".pop");
-  //   pop.remove();
-  // }
 
   plays.forEach((play) => {
     // για κάθε μία παρασταση πάρε φτιαξε ενα πίνακα με τις ημερομινιες 
@@ -76,17 +66,17 @@ function addplays(month, plays) {
       let td = document.querySelector(".d" + el);
       let div = document.createElement('div');
       div.classList.add('textlink');
-      div.innerHTML = "<a href='/play.html?" + play + "'>" + shows[play].name + "</a>";
-      //adiv.addEventListener('mouseover', popover);
-     // div.addEventListener('mouseout', removepop);
+      // div.innerHTML = "<a href='/play.html?" + play + "'>" + shows[play].name + "</a>";
+      div.innerHTML = "<a href='/reservation.html?" + play + "'>" + shows[play].name + "</a>";
       td.appendChild(div);
       let pop = document.createElement('div');
       pop.classList.add("pop");
-      pop.textContent = "test"
+      pop.innerHTML = "<a href='/play.html?" + play + "'>Δείτε λεπτομέρειες >> </a><a href='/reservation.html?" + play + "'>Κάντε κράτηση >></a>"
+
       div.appendChild(pop);
-    
+
     });
-    // console.log(plays);
+
   });
 
 
