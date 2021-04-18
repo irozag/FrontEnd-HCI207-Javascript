@@ -32,7 +32,7 @@ h1, h2 {
     font-size:2em;
 }
 
-button, .btn {
+button, .btn, input[type="submit"] {
     border:1px solid #008ece; 
     background-color:#008ece;
     color:#fff;
@@ -237,6 +237,7 @@ nav a {
     width: 10px;
     height: 10px;
     background-color: #7602ce;
+    cursor:pointer;
 }
 #map2 .seat {
     background-color: #10bbc7;
