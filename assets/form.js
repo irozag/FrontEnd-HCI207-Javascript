@@ -23,8 +23,10 @@ function userSelection() {
             // σβήσε τις προηγουμενες επιλογές
             let previous = document.querySelector('#dates');
             previous.innerHTML = " ";
+            previous.classList.remove("dateSelected");
             let print = document.querySelector("#userSelection");
             print.innerHTML = " ";
+            hideMap();
 
             printSelection(playSelect);
             displayAllPlays(playSelect);
@@ -47,11 +49,13 @@ function userSelection() {
         previous.classList.remove("dateSelected");
         let print = document.querySelector("#userSelection");
         print.innerHTML = " ";
+        hideMap();
 
+        //εμφανισε την επιλογή και τις διαθέσημες ημερομινίες
         printSelection(playSelect);
         displayAllPlays(playSelect);
 
-        //βάλε μπορτερ στην φωτογραφία για να φαίνεται επιλεγμένη
+        //βάλε μπορντερ στην φωτογραφία για να φαίνεται επιλεγμένη
         let selected = document.querySelectorAll(".feature")
         selected.forEach((element) => element.classList.remove("selected"));
         // .parentElement.classList.toggle("selected");
@@ -142,26 +146,24 @@ function displayAllPlays(userSelection) {
 }
 
 userSelection();
+createSeatMap();
 
 function selectSeat(id) {
-    //μετακινησε στο πλάι τις επιλογές 
+    //κρύψε όλες τις επιλογές (radio buttons)
     let d = document.querySelectorAll(".date");
     for (i = 0; i < d.length; i++) {
         d[i].style.display = "none";
     }
-
-    //εμφάνισε τις θέσεις
-    let view = document.querySelector(".positions");
-    view.style.display = "block";
-
-    createSeatMap();
-
+    //εμφάνεσε μόνο την επιλεγμένη ημερομινία στο πλάι
     let dateSelected = document.querySelector("#" + id);
     dateSelected.parentElement.style.display = "block";
 
+    //βάλε την κλαση dateSelected για να φτιάξει σωστά το grid στο πλάι
     let dates = document.querySelector("#dates");
     dates.classList.add("dateSelected");
 
+    // εμφάνισε το χάρτη
+    displayMap();
 
 }
 
@@ -170,13 +172,13 @@ function createSeatMap() {
 
     let seat = "<tbody>";
     let counter = 0;
-  
+
     for (i = 1; i <= 10; i++) {
         seat += "<tr>";
-        seat += "<th scope='row'>σειρά: "+i+"</th>"
+        seat += "<th scope='row'>σειρά: " + i + "</th>"
         counter++;
         for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber("+counter+",1);' title=" + counter + "></td>"
+            seat += "<td class='seat' onclick='seatNumber(" + counter + ",1);' title=" + counter + "></td>"
             counter++;
         }
         seat += "</tr>"
@@ -188,30 +190,74 @@ function createSeatMap() {
     const map2 = document.querySelector("#map2");
     seat = "<tbody>";
     counter = 0;
- 
+
     for (i = 1; i <= 5; i++) {
         seat += "<tr>";
-        seat += "<th scope='row'>σειρά: "+i+"</th>"
+        seat += "<th scope='row'>σειρά: " + i + "</th>"
         counter++;
         for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber("+counter+",2);' title=" + counter + " ></td>"
+            seat += "<td class='seat' onclick='seatNumber(" + counter + ",2);' title=" + counter + " ></td>"
             counter++;
         }
         seat += "</tr>"
     }
     seat += "</tbody>"
     map2.innerHTML = seat;
-    
+
 }
 
-function seatNumber(number,stage) {
+function seatNumber(number, stage) {
     let seat = document.querySelector("#seatSelection")
-    if (stage==1) {
-        seat.innerHTML = "Πλατεία: "+number
-    }else {
-        seat.innerHTML = "Eξώστης: "+number
+    // let input = document.createElement('input');
+    // input.classList.add('seatNumber');
+    // input.name = "seatNumber";
+    // input.value = number; 
+
+    if (stage == 1) {
+        seat.innerHTML = "Πλατεία: " + number
+    } else {
+        seat.innerHTML = "Eξώστης: " + number
     }
+    // seat.appendChild(input);
+
+    const view = document.querySelector(".personalDetails");
+    view.style.display = "block";
+
+    console.log(number);
+    console.log(stage);
 }
+
+
+function hideMap() {
+    const map = document.querySelector("#map");
+    const map2 = document.querySelector("#map2");
+
+    map.style.display = "none";
+    map2.style.display = "none";
+
+    //κρυψε τις θέσεις
+    let view = document.querySelector(".positions");
+    view.style.display = "none";
+
+    view = document.querySelector(".personalDetails");
+    view.style.display = "none";
+
+
+}
+
+function displayMap() {
+    const map = document.querySelector("#map");
+    const map2 = document.querySelector("#map2");
+    map.style.display = "table";
+    map2.style.display = "table";
+
+    //εμφάνισε τις θέσεις
+    const view = document.querySelector(".positions");
+    view.style.display = "block";
+}
+
+
 
 // let seats = document.querySelectorAll(".seat");
 // seats.forEach((element) => element.addEventListener("click", (element) => element.target.add("selected")));
+
