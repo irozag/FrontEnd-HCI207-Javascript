@@ -170,13 +170,13 @@ function createSeatMap() {
 
     let seat = "<tbody>";
     let counter = 0;
-    console.log(seat);
-    for (i = 0; i < 10; i++) {
+  
+    for (i = 1; i <= 10; i++) {
         seat += "<tr>";
         seat += "<th scope='row'>σειρά: "+i+"</th>"
         counter++;
         for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber("+counter+",1);' title=" + counter + "></td>"
+            seat += "<td class='seat' onclick='seatNumber("+counter+",1);' title=" + counter + " id='s"+ counter + "'></td>"
             counter++;
         }
         seat += "</tr>"
@@ -188,13 +188,13 @@ function createSeatMap() {
     const map2 = document.querySelector("#map2");
     seat = "<tbody>";
     counter = 0;
-    console.log(seat);
-    for (i = 0; i < 5; i++) {
+ 
+    for (i = 1; i <= 5; i++) {
         seat += "<tr>";
         seat += "<th scope='row'>σειρά: "+i+"</th>"
         counter++;
         for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber("+counter+",2);' title=" + counter + "></td>"
+            seat += "<td class='seat' onclick='seatNumber("+counter+",2);' title=" + counter + " id='s"+ counter + "'></td>"
             counter++;
         }
         seat += "</tr>"
@@ -205,10 +205,22 @@ function createSeatMap() {
 }
 
 function seatNumber(number,stage) {
-    console.log(number);
-    console.log(stage);
+    // console.log(number);
+    // console.log(stage);
+    let seat= document.querySelector("#s"+number);
+    seat.style.backgroundColor = "#000";
     return number;
 }
 
+
 // let seats = document.querySelectorAll(".seat");
-// seat[1].addEventListener("click", (e) =>  conlog.log(e.target.title) );
+// for (i=0; i<seats.length; i++) {
+//     seat[i].addEventListener("click", (e) => function (e){
+//         e.target.toggle("selected");
+//     });
+    
+// }
+let seats = document.querySelectorAll(".seat");
+seats.forEach((element) => element.addEventListener("click", (element) => element.target.add("selected")));
+
+// .parentElement.classList.toggle("selected");
