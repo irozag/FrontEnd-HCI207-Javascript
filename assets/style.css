@@ -45,8 +45,8 @@ button:hover, .btn:hover {
 }
 
 input, select {
-    padding: 1em;
-    margin-left:0.5em;
+    /* padding: 1em;
+    margin-left:0.5em; */
     border:1px solid transparent;
 }
 input:hover {
@@ -121,8 +121,8 @@ nav a {
 
 #search {
     text-align: center;
-    padding:1em 0 2em 0;
-  margin: 2.2em 0;
+    /* padding:1em 0 2em 0;
+  margin: 2.2em 0; */
     background-color: #ebebeb;
 }
 
