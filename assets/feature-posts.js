@@ -8,6 +8,9 @@ titles.forEach(function (title) {
 
     let feature = document.createElement('div');
     feature.classList.add('feature');
+    feature.classList.add('col-12');
+    feature.classList.add('col-lg-4');
+    feature.classList.add('p-3');
     featureFeed.appendChild(feature);
 
     if (!page.includes('reservation')){
