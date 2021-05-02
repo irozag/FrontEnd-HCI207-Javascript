@@ -404,8 +404,9 @@ footer {
 }
 
 .footer-links ul li{
-    display: inline;
+    display: block;
     padding:2em;
+
 }
 
 .footer-links ul li a:hover {
@@ -413,3 +414,9 @@ footer {
     color:#064b6b;
 }
 
+@media (min-width: 992px) { 
+    .footer-links ul li{
+        display: inline;
+    
+    }
+}
