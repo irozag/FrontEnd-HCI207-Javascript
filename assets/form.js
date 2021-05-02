@@ -9,7 +9,7 @@ plays.forEach(function (play) {
     if (play == fromOtherPage) {
         option.setAttribute('selected', true);
         //εμφανισε την επιλογή και τις διαθέσημες ημερομινίες
-        printSelection(fromOtherPage);
+        // printSelection(fromOtherPage);
         displayAllPlays(fromOtherPage);
     }
     option.innerHTML = shows[play].name;
@@ -41,7 +41,7 @@ function userTitleSelection() {
             print.innerHTML = " ";
             hideMap();
 
-            printSelection(playSelect);
+            // printSelection(playSelect);
             displayAllPlays(playSelect);
 
             //βάλε μπορτερ στην φωτογραφία για να φαίνεται επιλεγμένη   
@@ -69,7 +69,7 @@ function userOptionSelecton() {
         hideMap();
 
         //εμφανισε την επιλογή και τις διαθέσημες ημερομινίες
-        printSelection(playSelect);
+        // printSelection(playSelect);
         displayAllPlays(playSelect);
 
         //βάλε μπορντερ στην φωτογραφία για να φαίνεται επιλεγμένη
@@ -136,7 +136,7 @@ function displayAllPlays(userSelection) {
         dateDiv.appendChild(label);
         div.appendChild(dateDiv);
 
-        let divTitle = document.createElement('h4');
+        let divTitle = document.createElement('h5');
         divTitle.classList.add('text-center');
         divTitle.classList.add('border-bottom');
         divTitle.classList.add('p-3');
@@ -214,10 +214,10 @@ function createSeatMap() {
     for (i = 1; i <= 10; i++) {
         seat += "<tr>";
         seat += "<th scope='row'>σειρά: " + i + "</th>"
-        counter++;
-        for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber(" + counter + ",1);' id='S" + counter + "'></td>"
-            counter++;
+        // counter++;
+        for (z = 1; z <= 50; z++) {
+            seat += "<td class='seat' onclick='seatNumber(" + z + ", " + i + ",1);' id='S" + z + "L" + i +"'></td>"
+            // counter++;
         }
         seat += "</tr>"
     }
@@ -232,10 +232,10 @@ function createSeatMap() {
     for (i = 1; i <= 5; i++) {
         seat += "<tr>";
         seat += "<th scope='row'>σειρά: " + i + "</th>"
-        counter++;
-        for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber(" + counter + ",2);' id='E" + counter + "' ></td>"
-            counter++;
+        // counter++;
+        for (z = 1; z <= 50; z++) {
+            seat += "<td class='seat' onclick='seatNumber(" + z + ", " + i + ",2);' id='E" + z + "L" + i +"'></td>"
+            // counter++;
         }
         seat += "</tr>"
     }
@@ -244,7 +244,7 @@ function createSeatMap() {
 
 }
 
-function seatNumber(number, stage) {
+function seatNumber(number, line, stage) {
     const seatInput = document.querySelector("#seatSelection")
     const input = document.querySelector('#stage');
 
@@ -259,7 +259,7 @@ function seatNumber(number, stage) {
     }
 
     //βάζω ένα selected class για την επιλεγμενη θέση
-    let seatId = idLetter + number;
+    let seatId = idLetter + number + "L" + line;
     const seat = document.querySelectorAll('.seat');
 
     for (i = 0; i < seat.length; i++) {
