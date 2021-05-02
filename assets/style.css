@@ -288,10 +288,22 @@ nav a {
     border-radius: 9px;
     flex: 0 32%;
 }
+.dateSelected .date {
+    flex:none;
+    box-shadow:none;
+    background: transparent;
+}
+
 .roles{
     padding:0 22px;
     max-height: 200px;
     overflow-y: scroll;
+}
+
+.dateSelected  .roles {
+    padding: 0px;
+    max-height:initial;
+    overflow-y:auto;
 }
 
 .roles::-webkit-scrollbar {
@@ -319,10 +331,19 @@ nav a {
     margin: 10px 5px;
 
 }
+
+
+
+
 .role span {
     font-weight: normal;
     margin-left: 10px;
 }
+.dateSelected .role span {
+    margin-left: 0px;
+    display: block;
+}
+
 
 .reserv .feature-photo {
     border: 30px solid transparent;

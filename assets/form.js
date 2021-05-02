@@ -36,6 +36,7 @@ function userTitleSelection() {
             let previous = document.querySelector('#dates');
             previous.innerHTML = " ";
             previous.classList.remove("dateSelected");
+            previous.classList.remove("col-2");
             let print = document.querySelector("#userSelection");
             print.innerHTML = " ";
             hideMap();
@@ -62,6 +63,7 @@ function userOptionSelecton() {
         let previous = document.querySelector('#dates');
         previous.innerHTML = " ";
         previous.classList.remove("dateSelected");
+        previous.classList.remove("col-2");
         let print = document.querySelector("#userSelection");
         print.innerHTML = " ";
         hideMap();
@@ -196,7 +198,8 @@ function selectSeat(id) {
     //βάλε την κλαση dateSelected για να φτιάξει σωστά το grid στο πλάι
     let dates = document.querySelector("#dates");
     dates.classList.add("dateSelected");
-
+    dates.classList.add("col-2");
+    
     // εμφάνισε το χάρτη
     displayMap();
 
