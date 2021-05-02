@@ -247,6 +247,8 @@ function createSeatMap() {
 function seatNumber(number, line, stage) {
     const seatInput = document.querySelector("#seatSelection")
     const input = document.querySelector('#stage');
+    const lineInput = document.querySelector("#lineSelection");
+    lineInput.value = line;
 
     if (stage == 1) {
         seatInput.value = number;
@@ -257,6 +259,7 @@ function seatNumber(number, line, stage) {
         input.value = 'Eξώστης';
         idLetter = "E"
     }
+
 
     //βάζω ένα selected class για την επιλεγμενη θέση
     let seatId = idLetter + number + "L" + line;
