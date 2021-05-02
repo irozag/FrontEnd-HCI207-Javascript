@@ -12,13 +12,17 @@ titles.forEach(function (title) {
     feature.classList.add('col-lg-4');
     feature.classList.add('p-3');
     featureFeed.appendChild(feature);
-
-    if (!page.includes('reservation')){
-        let div = document.createElement('div');
+    let div = document.createElement('div');
         div.classList.add('dates');
         div.innerHTML = shows[title].mounth;
         feature.appendChild(div);
-    }
+
+    // if (!page.includes('reservation')){
+    //     let div = document.createElement('div');
+    //     div.classList.add('dates');
+    //     div.innerHTML = shows[title].mounth;
+    //     feature.appendChild(div);
+    // }
 
     div = document.createElement('div');
     div.classList.add('feature-photo');

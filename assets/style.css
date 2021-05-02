@@ -264,7 +264,7 @@ nav a {
 #reservation {
     text-align: center;
     padding: 2em;
-    margin: 2.2em;
+    margin: 2.2em 0;
     background-color: #ebebeb;
 }
  
@@ -313,7 +313,7 @@ nav a {
 }
 
 #userSelection {
-    padding:20px;
+    padding:5px;
 }
 .namePlay {
     font-size: 30px;
