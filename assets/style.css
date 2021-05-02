@@ -285,7 +285,7 @@ nav a {
 .roles{
     padding:0 22px;
     max-height: 200px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .roles::-webkit-scrollbar {
@@ -296,15 +296,12 @@ nav a {
     width: 11px;
 }
 
-.roles::-webkit-scrollbar:horizontal {
-    height: 11px;
-}
-
 .roles::-webkit-scrollbar-thumb {
     border-radius: 8px;
     border: 2px solid white; /* should match background, can't be transparent */
     background-color: rgba(0, 0, 0, .5);
 }
+
 
 .date label {
     font-size: 20px;
