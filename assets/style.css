@@ -334,15 +334,19 @@ nav a {
 
 .wrapper {
     display: grid;
-    gap:5px;
-    grid-auto-columns: minmax(auto, 50%);
+    /* gap:5px; */
+    /* grid-auto-columns: minmax(auto, 50%); */
     width:100%;
-    grid-template-areas:
-        'main main main main main photo photo photo photo photo'
-     
+    grid-template-columns: 1fr ;
+    grid-row: 2;
+    grid-template-areas: 
+            "main"
+            "photo photo";
 }
+
 .photo {
     grid-area:photo;
+    grid-row: 2;
   
 }
 
@@ -350,6 +354,7 @@ nav a {
     grid-area:main;
     margin: 2em 4em 2em 0;
     height: 80%;
+    grid-row: 1;
 }
 .play.photo .feature-photo{
     background-image: url(/assets/hero-tzovani.jpeg);
@@ -364,12 +369,12 @@ nav a {
 }
 
 .crew {
-    margin-top:-30px;
+    /* margin-top:-30px; */
     background: #000000a8;
     color: #fff;
     padding: 50px 20px;
-    grid-row: 1;
-    grid-column: 9/ 10;
+    grid-row: 2;
+    grid-column: 3/4;
     justify-self: flex-start;
 
 }
@@ -379,7 +384,8 @@ nav a {
     color:#c3c3c3;
 }
 .details span{
-    display: block;
+    display: inline-block;
+    margin-left:10px;
     font-size:18px;
     color:#fff;
 }
@@ -420,4 +426,23 @@ footer {
         display: inline;
     
     }
+    .wrapper {
+        grid-row: 1;
+        grid-template-columns: 50% 10% 1fr;
+        grid-template-areas:
+        'main photo photo';
+    }
+    .crew { 
+        grid-row: 1;
+        grid-column: 3/ 4;
+        margin-top: -30px;
+    }
+    .photo {
+        grid-row: 1;
+    }
+    .details span{
+        display: block;
+        margin-left:0;
+    }
+   
 }
