@@ -84,5 +84,6 @@ function addplays(month, plays) {
 
 let plays = Object.keys(shows);
 let month = currentMonth();
+console.log(month);
 createCalendar(month);
 addplays(month.thisMonth, plays);
