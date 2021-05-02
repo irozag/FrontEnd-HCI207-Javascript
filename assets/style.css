@@ -2,6 +2,7 @@
 
 /* ------------ INITIALS ---------- */
 
+
 body { 
     margin:0;
     font-family:'Vollkorn','Times New Roman', Times, serif;
@@ -275,17 +276,36 @@ nav a {
 .date {
     text-align: left;
     padding-top:20px;
-    max-height: 200px;
     background: #fff;
     box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
-    display: block;
-    overflow: scroll;
     margin: 15px 0;
     border-radius: 9px;
+    flex: 0 32%;
 }
 .roles{
-    
+    padding:0 22px;
+    max-height: 200px;
+    overflow: scroll;
 }
+
+.roles::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.roles::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.roles::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+.roles::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white; /* should match background, can't be transparent */
+    background-color: rgba(0, 0, 0, .5);
+}
+
 .date label {
     font-size: 20px;
     line-height: 2px;
@@ -294,9 +314,11 @@ nav a {
     flex-wrap: wrap;
     font-weight: bold;
     margin: 10px 5px;
+
 }
 .role span {
     font-weight: normal;
+    margin-left: 10px;
 }
 
 .reserv .feature-photo {

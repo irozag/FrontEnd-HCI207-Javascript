@@ -134,13 +134,21 @@ function displayAllPlays(userSelection) {
         dateDiv.appendChild(label);
         div.appendChild(dateDiv);
 
+        let divTitle = document.createElement('h4');
+        divTitle.classList.add('text-center');
+        divTitle.classList.add('border-bottom');
+        divTitle.classList.add('p-3');
+        divTitle.innerHTML = "Συμμετέχουν"
+        div.appendChild(divTitle);
+
         let divRoles = document.createElement('div');
         divRoles.classList.add('roles');
         //δημιουργησε το div για κάθε τιτλο/ρόλο
         for (role in play.roles) {
             let divRole = document.createElement('div');
             divRole.classList.add('role');
-            divRole.innerHTML = role + ": <br/>";
+            divRole.innerHTML = role + ": ";
+           
             divRoles.appendChild(divRole);
             let span = document.createElement('span');
             span.classList.add('actor');
