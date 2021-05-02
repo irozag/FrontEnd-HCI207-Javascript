@@ -50,6 +50,15 @@ titles.forEach(function (title) {
     div.innerHTML = shows[title].composer;
     feature.appendChild(div);
 
+    // if (page.includes('reservation')){
+    //     let button = document.createElement('button');
+    //     button.classList.add('btn');
+    //     button.classList.add('btn-link');
+    //     button.classList.add('mt-2');
+    //     button.innerHTML = "<a href='/play.html?" + titles + "'>Δείτε λεπτομέρειες >> </a>"
+    //     feature.appendChild(button);
+    // }
+
 });
 
 if (titles.length > 3) {

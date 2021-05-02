@@ -33,12 +33,18 @@ h1, h2 {
     font-size:2em;
 }
 
-button, .btn, input[type="submit"] {
+.btn-primary {
     border:1px solid #008ece; 
     background-color:#008ece;
     color:#fff;
     padding:0.8em 1em;
     font-size: 16px;
+}
+.btn-link a {
+    color:#008ece;
+}
+.btn-link a:hover {
+    color:#fff;
 }
 
 button:hover, .btn:hover {
@@ -299,7 +305,7 @@ nav a {
 .roles::-webkit-scrollbar-thumb {
     border-radius: 8px;
     border: 2px solid white; /* should match background, can't be transparent */
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .25);
 }
 
 
