@@ -183,6 +183,7 @@ userOptionSelecton();
 createSeatMap();
 
 function selectSeat(id) {
+    console.log(id);
     //κρύψε όλες τις επιλογές (radio buttons)
     let d = document.querySelectorAll(".date");
     for (i = 0; i < d.length; i++) {
@@ -190,7 +191,7 @@ function selectSeat(id) {
     }
     //εμφάνεσε μόνο την επιλεγμένη ημερομινία στο πλάι
     let dateSelected = document.querySelector("#" + id);
-    dateSelected.parentElement.style.display = "block";
+    dateSelected.parentElement.parentElement.style.display = "block";
 
     //βάλε την κλαση dateSelected για να φτιάξει σωστά το grid στο πλάι
     let dates = document.querySelector("#dates");

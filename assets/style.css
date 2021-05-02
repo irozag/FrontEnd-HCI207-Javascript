@@ -343,7 +343,7 @@ nav a {
 }
 
 #reservation .dates.dateSelected {
-    grid-column: 1 /2;
+    /* grid-column: 1 /2; */
     border-right: 1px solid #aaa;
 }
 
