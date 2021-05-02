@@ -275,6 +275,16 @@ nav a {
 .date {
     text-align: left;
     padding-top:20px;
+    max-height: 200px;
+    background: #fff;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+    display: block;
+    overflow: scroll;
+    margin: 15px 0;
+    border-radius: 9px;
+}
+.roles{
+    
 }
 .date label {
     font-size: 20px;

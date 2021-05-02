@@ -100,8 +100,11 @@ function printSelection(userSelection) {
 function displayAllPlays(userSelection) {
     const datesDiv = document.querySelector("#dates");
     let wrapper = document.createElement("div");
-    wrapper.classList.add('rWrapper');
+    wrapper.classList.add('d-flex');
+    wrapper.classList.add('flex-wrap');
+    wrapper.classList.add('justify-content-between');
 
+   
     let play = shows[userSelection];
     let datesAr = play.dates;
 
@@ -113,30 +116,36 @@ function displayAllPlays(userSelection) {
         let dateId = "dateId" + date.replaceAll("-", "");
 
         // φτιαξε ενα radio button
+        let dateDiv = document.createElement('div');
+        dateDiv.classList.add('text-center');
         let input = document.createElement('input');
         input.classList.add('radio');
         input.setAttribute("type", "radio");
         input.setAttribute("id", dateId);
         input.setAttribute("name", "date");
         input.addEventListener("click", (e) => selectSeat(e.target.id));
-
         input.value = date;
-        div.appendChild(input);
+        dateDiv.appendChild(input);
+    
         // φτιάξε ενα label
         let label = document.createElement('label');
         label.setAttribute("for", dateId);
         label.innerHTML = date;
-        div.appendChild(label);
+        dateDiv.appendChild(label);
+        div.appendChild(dateDiv);
 
+        let divRoles = document.createElement('div');
+        divRoles.classList.add('roles');
         //δημιουργησε το div για κάθε τιτλο/ρόλο
         for (role in play.roles) {
             let divRole = document.createElement('div');
             divRole.classList.add('role');
             divRole.innerHTML = role + ": <br/>";
-            div.appendChild(divRole);
+            divRoles.appendChild(divRole);
             let span = document.createElement('span');
             span.classList.add('actor');
             divRole.appendChild(span);
+            div.appendChild(divRoles);
 
            // φτιαξε ένα αντικείμενο με τους ηθοποιούς και τον αντιστοιχο πινακα με τις ημερομινιες που παιζουν 
             let dateAr = play.roles[role];
