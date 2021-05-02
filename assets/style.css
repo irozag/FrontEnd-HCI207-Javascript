@@ -340,10 +340,9 @@ nav a {
     font-weight: normal;
     margin-left: 10px;
 }
-.dateSelected .role span {
-    margin-left: 0px;
-    display: block;
-}
+/* .dateSelected .role span {
+    text-align: center;
+} */
 
 
 .reserv .feature-photo {
@@ -503,4 +502,12 @@ footer {
         margin-left:0;
     }
    
+}
+
+@media (min-width: 1200px) { 
+
+.dateSelected .role span {
+    margin-left: 0px;
+    display: block;
+}
 }
