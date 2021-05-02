@@ -292,6 +292,7 @@ nav a {
     flex:none;
     box-shadow:none;
     background: transparent;
+    padding-top:0px;
 }
 
 .roles{

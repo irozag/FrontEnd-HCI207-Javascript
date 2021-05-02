@@ -58,7 +58,7 @@ function userOptionSelecton() {
     const selectElement = document.querySelector('#plays');
     selectElement.addEventListener('change', (e) => {
         let playSelect = e.target.value;
- 
+
         // σβήσε τις προηγουμενες επιλογές
         let previous = document.querySelector('#dates');
         previous.innerHTML = " ";
@@ -106,7 +106,7 @@ function displayAllPlays(userSelection) {
     wrapper.classList.add('flex-wrap');
     wrapper.classList.add('justify-content-between');
 
-   
+
     let play = shows[userSelection];
     let datesAr = play.dates;
 
@@ -128,7 +128,7 @@ function displayAllPlays(userSelection) {
         input.addEventListener("click", (e) => selectSeat(e.target.id));
         input.value = date;
         dateDiv.appendChild(input);
-    
+
         // φτιάξε ενα label
         let label = document.createElement('label');
         label.setAttribute("for", dateId);
@@ -150,14 +150,14 @@ function displayAllPlays(userSelection) {
             let divRole = document.createElement('div');
             divRole.classList.add('role');
             divRole.innerHTML = role + ": ";
-           
+
             divRoles.appendChild(divRole);
             let span = document.createElement('span');
             span.classList.add('actor');
             divRole.appendChild(span);
             div.appendChild(divRoles);
 
-           // φτιαξε ένα αντικείμενο με τους ηθοποιούς και τον αντιστοιχο πινακα με τις ημερομινιες που παιζουν 
+            // φτιαξε ένα αντικείμενο με τους ηθοποιούς και τον αντιστοιχο πινακα με τις ημερομινιες που παιζουν 
             let dateAr = play.roles[role];
 
             // για κάθε ηθοποιό αν υπάρχει μεσα ημερομινία που αντιστοιχεί με τη ημερομινια (date) που είνα σε αυτο το forEach
@@ -199,7 +199,7 @@ function selectSeat(id) {
     let dates = document.querySelector("#dates");
     dates.classList.add("dateSelected");
     dates.classList.add("col-2");
-    
+
     // εμφάνισε το χάρτη
     displayMap();
 
@@ -216,7 +216,7 @@ function createSeatMap() {
         seat += "<th scope='row'>σειρά: " + i + "</th>"
         // counter++;
         for (z = 1; z <= 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber(" + z + ", " + i + ",1);' id='S" + z + "L" + i +"'></td>"
+            seat += "<td class='seat' title=" + z + " onclick='seatNumber(" + z + ", " + i + ",1);' id='S" + z + "L" + i + "'></td>"
             // counter++;
         }
         seat += "</tr>"
@@ -234,7 +234,7 @@ function createSeatMap() {
         seat += "<th scope='row'>σειρά: " + i + "</th>"
         // counter++;
         for (z = 1; z <= 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber(" + z + ", " + i + ",2);' id='E" + z + "L" + i +"'></td>"
+            seat += "<td class='seat' title=" + z + " onclick='seatNumber(" + z + ", " + i + ",2);' id='E" + z + "L" + i + "'></td>"
             // counter++;
         }
         seat += "</tr>"
