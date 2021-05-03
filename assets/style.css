@@ -303,8 +303,12 @@ nav a {
 
 .dateSelected  .roles {
     padding: 0px;
-    max-height:initial;
-    overflow-y:auto;
+    max-height:450px;
+    /* overflow-y:auto; */
+}
+
+.dateSelected  .roles::-webkit-scrollbar-thumb {
+    border: 2px solid #ebebeb; /* should match background, can't be transparent */
 }
 
 .roles::-webkit-scrollbar {

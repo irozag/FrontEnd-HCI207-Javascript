@@ -105,33 +105,29 @@
                     <div class="personalDetails row g-3">
                             <div class="container-fluid">
                                 <div class="row justify-content-md-center align-items-center">
-                                <div class="col-auto">
-                                    <label for="name">Όνομα:</label>
-                                    </div>
-                                    <div class="col-auto">
-                                    <input type="text" class="form-control p-2" name="name" id="name"
+                                <div class="col-4">
+                                    <label for="name" class="form-label">Όνομα:</label>
+                                    <input type="text" class="form-control p-3" name="name" id="name"
                                         pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}" placeholder="Type your name" required>
                                 </div>
-                                <div class="col-auto">
-                                    <label for="surname">Επίθετο:</label>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="text" class="form-control p-2" name="surname" id="surname"
+                                <div class="col-4">
+                                    <label for="surname" class="form-label">Επίθετο:</label>
+                                    <input type="text" class="form-control p-3" name="surname" id="surname"
                                         pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}" placeholder="Type your surname" required>
                                 </div>
-                                <div class="col-auto">
-                                    <label for="email">Ηλεκτρονικό Ταχυδρομείο:</label>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="email" class="form-control p-2" name="email" id="email"
+                                <div class="col-4">
+                                    <label for="email" class="form-label">Ηλεκτρονικό Ταχυδρομείο:</label>
+                                    <input type="email" class="form-control p-3" name="email" id="email"
                                         placeholder="email@example.com" required>
                                 </div>
                                 <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
-                                <div class="col-auto">
-                                    <button class="btn btn-primary" type="submit">Κράτηση</button>
-                                </div>
+                    
                                 <!-- <output id="message"></output> -->
                             </div><!-- inner row-->
+
+                            <div class="row">
+                                <button class="btn btn-primary" type="submit">Κράτηση</button>
+                            </div>
                         </div> <!-- inner container -->
                     </div>
                     <!--row -->
