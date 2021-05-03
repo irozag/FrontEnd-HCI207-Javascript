@@ -36,7 +36,7 @@ function userTitleSelection() {
             let previous = document.querySelector('#dates');
             previous.innerHTML = " ";
             previous.classList.remove("dateSelected");
-            previous.classList.remove("col-xl-2");
+            previous.classList.remove("col-xl-3");
             previous.classList.remove("col-12");
             let print = document.querySelector("#userSelection");
             print.innerHTML = " ";
@@ -64,7 +64,7 @@ function userOptionSelecton() {
         let previous = document.querySelector('#dates');
         previous.innerHTML = " ";
         previous.classList.remove("dateSelected");
-        previous.classList.remove("col-xl-2");
+        previous.classList.remove("col-xl-3");
         previous.classList.remove("col-12");
         let print = document.querySelector("#userSelection");
         print.innerHTML = " ";
@@ -106,7 +106,7 @@ function displayAllPlays(userSelection) {
     let wrapper = document.createElement("div");
     wrapper.classList.add('d-flex');
     wrapper.classList.add('flex-wrap');
-    wrapper.classList.add('justify-content-between');
+    wrapper.classList.add('justify-content-around');
 
 
     let play = shows[userSelection];
@@ -200,7 +200,7 @@ function selectSeat(id) {
     //βάλε την κλαση dateSelected για να φτιάξει σωστά το grid στο πλάι
     let dates = document.querySelector("#dates");
     dates.classList.add("dateSelected");
-    dates.classList.add("col-xl-2");
+    dates.classList.add("col-xl-3");
     dates.classList.add("col-12");
 
     // εμφάνισε το χάρτη
@@ -216,7 +216,7 @@ function createSeatMap() {
 
     for (i = 1; i <= 10; i++) {
         seat += "<tr>";
-        seat += "<th scope='row'>σειρά: " + i + "</th>"
+        seat += "<th scope='row'><span>σειρά:</span> " + i + "</th>"
         // counter++;
         for (z = 1; z <= 50; z++) {
             seat += "<td class='seat' title=" + z + " onclick='seatNumber(" + z + ", " + i + ",1);' id='S" + z + "L" + i + "'></td>"
@@ -234,7 +234,7 @@ function createSeatMap() {
 
     for (i = 1; i <= 5; i++) {
         seat += "<tr>";
-        seat += "<th scope='row'>σειρά: " + i + "</th>"
+        seat += "<th scope='row'><span>σειρά:</span> " + i + "</th>"
         // counter++;
         for (z = 1; z <= 50; z++) {
             seat += "<td class='seat' title=" + z + " onclick='seatNumber(" + z + ", " + i + ",2);' id='E" + z + "L" + i + "'></td>"

@@ -57,8 +57,8 @@
         <section id="reservation" class="row">
 
             <form>
-                <div class="list">
-                    <label for="plays">Επιλέξτε παράσταση:</label>
+                <div class="list text-center">
+                    <h5 class="text-center">Επιλέξτε Παράσταση:</h5>
                     <select id="plays" class="form-select p-3" name="plays">
                         <option value="">--Παράσταση--</option>
                     </select>
@@ -70,25 +70,28 @@
                             <!-- <div class="wrapper"></div> -->
                         </div>
 
-                        <div class="positions col-xl-10 col-12 ">
+                        <div class="positions col-xl-9 col-12 ">
+                            <h5 class="text-center">Επιλέξτε θέση:</h5>
+                            <table id="map" class="map"> </table>
+                            <table id="map2" class="map"> </table>
                             <div class="container">
                                 <div class="row  g-3 justify-content-md-center">
-                                    <div class="col-auto">
+                                    <div class="col-lg-3 col-12">
                                         <label for="ticket" class="form-label">Τοποθεσία:</label>
                                         <input type="text" name="stage" class="form-control p-2" id="stage" disabled
                                             size="7">
                                     </div>
-                                    <div class="col-auto">
+                                    <div class="col-lg-3 col-12">
                                         <label for="seat" class="form-label">Θέση:</label>
                                         <input type="text" name="seat" class="form-control p-2" id="seatSelection"
                                             disabled size="5">
                                     </div>
-                                    <div class="col-auto">
+                                    <div class="col-lg-3 col-12">
                                         <label for="seat" class="form-label">Σειρά:</label>
                                         <input type="text" name="line" class="form-control p-2" id="lineSelection"
                                             disabled size="5">
                                     </div>
-                                    <div class="col-auto">
+                                    <div class="col-lg-3 col-12">
                                         <label for="ticket" class="form-label">Εισητήριο:</label>
                                         <select id="ticket" class="form-select p-2" name="ticket">
                                             <option value="regural">Κανονικό</option>
@@ -97,37 +100,35 @@
                                     </div>
                                 </div><!-- row -->
                             </div><!-- conteiner -->
-                            <!-- <span id="seatSelection"> </span> -->
-                            <table id="map" class="map"> </table>
-                            <table id="map2" class="map"> </table>
-                        </div>
+            
+                        </div><!-- col -->
                     </div> <!-- row -->
                     <div class="personalDetails row g-3">
                             <div class="container-fluid">
                                 <div class="row justify-content-md-center align-items-center">
-                                <div class="col-4">
+                                <div class="col-lg-4 col-12 mb-3 mb-lg-0">
                                     <label for="name" class="form-label">Όνομα:</label>
                                     <input type="text" class="form-control p-3" name="name" id="name"
                                         pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}" placeholder="Type your name" required>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-lg-4 col-12 mb-3 mb-lg-0">
                                     <label for="surname" class="form-label">Επίθετο:</label>
                                     <input type="text" class="form-control p-3" name="surname" id="surname"
                                         pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}" placeholder="Type your surname" required>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-lg-4 col-12 mb-3 mb-lg-0">
                                     <label for="email" class="form-label">Ηλεκτρονικό Ταχυδρομείο:</label>
                                     <input type="email" class="form-control p-3" name="email" id="email"
                                         placeholder="email@example.com" required>
                                 </div>
                                 <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
-                    
+                            
                                 <!-- <output id="message"></output> -->
                             </div><!-- inner row-->
-
-                            <div class="row">
+                            <div class="row mt-4 p-2">
                                 <button class="btn btn-primary" type="submit">Κράτηση</button>
                             </div>
+                          
                         </div> <!-- inner container -->
                     </div>
                     <!--row -->

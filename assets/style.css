@@ -260,6 +260,9 @@ nav a {
     background-color: #10bbc7;
 }
 
+.map th span {
+    display: none;
+}
 .seat:hover {
     background-color: #000000;
 }
@@ -269,7 +272,7 @@ nav a {
 }
 
 #reservation {
-    text-align: center;
+    /* text-align: center; */
     padding: 2em;
     margin: 2.2em 0;
     background-color: #ebebeb;
@@ -286,10 +289,10 @@ nav a {
     box-shadow: 0 10px 20px rgb(0 0 0 / 10%), 0 6px 6px rgb(0 0 0 / 13%);
     margin: 15px 0;
     border-radius: 9px;
-    flex: 0 32%;
+    flex: 0 1 auto;
 }
 .dateSelected .date {
-    flex:none;
+    flex: 0 1 auto;
     box-shadow:none;
     background: transparent;
     padding-top:0px;
@@ -303,7 +306,7 @@ nav a {
 
 .dateSelected  .roles {
     padding: 0px;
-    max-height:450px;
+    max-height:490px;
     /* overflow-y:auto; */
 }
 
@@ -363,9 +366,9 @@ nav a {
     padding:10px 0 20px;
     display: none;
 }
-#reservation .dates {
+/* #reservation .dates {
     grid-column: 1 /11;
-}
+} */
 
 #reservation .dates.dateSelected {
     /* grid-column: 1 /2; */
@@ -481,6 +484,12 @@ footer {
     color:#064b6b;
 }
 
+@media (min-width: 768px) { 
+    .date {
+        flex: 0 45%;
+    }
+ }
+
 @media (min-width: 992px) { 
     .footer-links ul li{
         display: inline;
@@ -504,7 +513,13 @@ footer {
         display: block;
         margin-left:0;
     }
-   
+    .map th span {
+        display: initial;
+    }
+    .date {
+        flex: 0 32%;
+    }
+
 }
 
 @media (min-width: 1200px) { 
@@ -513,4 +528,9 @@ footer {
     margin-left: 0px;
     display: block;
 }
+.dateSelected .date {
+    flex: 0 0 auto;
+}
+
+
 }
