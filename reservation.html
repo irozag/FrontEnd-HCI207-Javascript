@@ -56,9 +56,9 @@
 
         <section id="reservation" class="row">
 
-            <form>
+            <form action="" class="validate" novalidate>
                 <div class="list text-center">
-                    <h5 class="text-center">Επιλέξτε Παράσταση:</h5>
+                    <legend class="text-center">Επιλέξτε Παράσταση:</legend>
                     <select id="plays" class="form-select p-3" name="plays">
                         <option value="">--Παράσταση--</option>
                     </select>
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="positions col-xl-9 col-12 ">
-                            <h5 class="text-center">Επιλέξτε θέση:</h5>
+                            <legend class="text-center">Επιλέξτε θέση:</legend>
                             <table id="map" class="map"> </table>
                             <table id="map2" class="map"> </table>
                             <div class="container">
@@ -110,16 +110,19 @@
                                     <label for="name" class="form-label">Όνομα:</label>
                                     <input type="text" class="form-control p-3" name="name" id="name"
                                         pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}" placeholder="Type your name" required>
+                                        <div class="invalid-feedback">Το όνομα πρέπει να περιέχει τουλάχιστον 3 γράμματα και κανένα αριθμό</div>
                                 </div>
                                 <div class="col-lg-4 col-12 mb-3 mb-lg-0">
                                     <label for="surname" class="form-label">Επίθετο:</label>
                                     <input type="text" class="form-control p-3" name="surname" id="surname"
                                         pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}" placeholder="Type your surname" required>
+                                        <div class="invalid-feedback">Το όνομα πρέπει να περιέχει τουλάχιστον 3 γράμματα και κανένα αριθμό</div>
                                 </div>
                                 <div class="col-lg-4 col-12 mb-3 mb-lg-0">
                                     <label for="email" class="form-label">Ηλεκτρονικό Ταχυδρομείο:</label>
                                     <input type="email" class="form-control p-3" name="email" id="email"
                                         placeholder="email@example.com" required>
+                                        <div class="invalid-feedback">Το email πρέπει να έχει την τυπική μορφή του διακριτικού ονόματος - @ - όνομα domain</div>
                                 </div>
                                 <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
                             
@@ -146,6 +149,17 @@
             </ul>
         </div>
     </footer>
+
+    <script>
+        const myform = document.querySelector(".validate");
+         
+        myform.addEventListener('submit', (event) => {
+            if (!myform.checkValidity()){
+                event.preventDefault()
+            }
+            myform.classList.add('was-validated')
+        })
+    </script>
 </body>
 
 </html>
