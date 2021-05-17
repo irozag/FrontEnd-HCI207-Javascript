@@ -1,7 +1,7 @@
 # hci207-1088747-project-1 
 front end project for HCI course. 
 
-demo link : nationalopera.netlify.app/
+demo link : [nationalopera.netlify.app/](https://nationalopera.netlify.app/)
 
 Notes 
 * Στο αρχείο CSS είναι αποθηκευμένα όλα τα styles, με σχόλεια χωρισμένα ανα σελίδα
