@@ -1,5 +1,5 @@
 # hci207-1088747-project-1 
-front end project for HCI lesson. 
+front end project for HCI course. 
 
 Notes 
 * Στο αρχείο CSS είναι αποθηκευμένα όλα τα styles, με σχόλεια χωρισμένα ανα σελίδα
