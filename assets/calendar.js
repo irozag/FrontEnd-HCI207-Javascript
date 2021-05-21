@@ -52,22 +52,25 @@ function createCalendar(month) {
 }
 
 function addplays(month, plays) {
-
+  console.log(month);
 
   plays.forEach((play) => {
     // για κάθε μία παρασταση πάρε φτιαξε ενα πίνακα με τις ημερομινιες 
     let datesA = shows[play].dates;
-
+    // console.log(datesA);
     //φιλτραρε τις παραστασεις του μηνα  (δεν ελέγχω το χρόνο)
     let thisMonthPlays = datesA.filter((el) => el.split("-")[1] == month + 1);
+ 
     thisMonthPlays = thisMonthPlays.map((el) => el.split("-")[2]);
-
+    console.log(thisMonthPlays);
     thisMonthPlays.forEach((el) => {
-      let td = document.querySelector(".d" + el);
+      let clas = ".d" + el.replace(/^0/, '');
+      let td = document.querySelector(clas);
+      console.log(td);
       let div = document.createElement('div');
       div.classList.add('textlink');
       div.innerHTML = "<a href='/play.html?" + play + "'>" + shows[play].name + "</a>";
-    //  div.innerHTML = "<a href='/reservation.html?" + play + "'>" + shows[play].name + "</a>";
+ 
       td.appendChild(div);
       let pop = document.createElement('div');
       pop.classList.add("pop");
@@ -84,5 +87,6 @@ function addplays(month, plays) {
 
 let plays = Object.keys(shows);
 let month = currentMonth();
+// console.log(month);
 createCalendar(month);
 addplays(month.thisMonth, plays);

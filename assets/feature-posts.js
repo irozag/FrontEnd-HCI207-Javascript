@@ -8,14 +8,21 @@ titles.forEach(function (title) {
 
     let feature = document.createElement('div');
     feature.classList.add('feature');
+    feature.classList.add('col-12');
+    feature.classList.add('col-lg-4');
+    feature.classList.add('p-3');
     featureFeed.appendChild(feature);
-
-    if (!page.includes('reservation')){
-        let div = document.createElement('div');
+    let div = document.createElement('div');
         div.classList.add('dates');
         div.innerHTML = shows[title].mounth;
         feature.appendChild(div);
-    }
+
+    // if (!page.includes('reservation')){
+    //     let div = document.createElement('div');
+    //     div.classList.add('dates');
+    //     div.innerHTML = shows[title].mounth;
+    //     feature.appendChild(div);
+    // }
 
     div = document.createElement('div');
     div.classList.add('feature-photo');
@@ -43,6 +50,15 @@ titles.forEach(function (title) {
     div.innerHTML = shows[title].composer;
     feature.appendChild(div);
 
+    // if (page.includes('reservation')){
+    //     let button = document.createElement('button');
+    //     button.classList.add('btn');
+    //     button.classList.add('btn-link');
+    //     button.classList.add('mt-2');
+    //     button.innerHTML = "<a href='/play.html?" + titles + "'>Δείτε λεπτομέρειες >> </a>"
+    //     feature.appendChild(button);
+    // }
+
 });
 
 if (titles.length > 3) {
@@ -53,25 +69,4 @@ if (titles.length > 3) {
     featurefeed.appendChild(button);
 }
 
-/*
-
-let dates = featureFeed.querySelectorAll('.dates');
-let title = featureFeed.querySelectorAll('.title');
-let photo = featureFeed.querySelectorAll('.feature-photo');
-let room = featureFeed.querySelectorAll('.room');
-let composer = featureFeed.querySelectorAll('.composer');
-let i=0;
-
-titles.forEach(function(titles){
-    console.log(dates[i]);
-    dates[i].innerHTML =  shows[titles].mounth ;
-    title[i].innerHTML =  shows[titles].name ;
-    room[i].innerHTML =  shows[titles].room ;
-    photo[i].style.backgroundImage = "url("+shows[titles].photo+")";
-    composer[i].innerHTML =  shows[titles].composer ;
-    i++;
-
-});
-
- */
 

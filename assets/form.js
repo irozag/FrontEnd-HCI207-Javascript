@@ -9,7 +9,7 @@ plays.forEach(function (play) {
     if (play == fromOtherPage) {
         option.setAttribute('selected', true);
         //εμφανισε την επιλογή και τις διαθέσημες ημερομινίες
-        printSelection(fromOtherPage);
+        // printSelection(fromOtherPage);
         displayAllPlays(fromOtherPage);
     }
     option.innerHTML = shows[play].name;
@@ -36,11 +36,13 @@ function userTitleSelection() {
             let previous = document.querySelector('#dates');
             previous.innerHTML = " ";
             previous.classList.remove("dateSelected");
+            previous.classList.remove("col-xl-3");
+            previous.classList.remove("col-12");
             let print = document.querySelector("#userSelection");
             print.innerHTML = " ";
             hideMap();
 
-            printSelection(playSelect);
+            // printSelection(playSelect);
             displayAllPlays(playSelect);
 
             //βάλε μπορτερ στην φωτογραφία για να φαίνεται επιλεγμένη   
@@ -57,17 +59,19 @@ function userOptionSelecton() {
     const selectElement = document.querySelector('#plays');
     selectElement.addEventListener('change', (e) => {
         let playSelect = e.target.value;
- 
+
         // σβήσε τις προηγουμενες επιλογές
         let previous = document.querySelector('#dates');
         previous.innerHTML = " ";
         previous.classList.remove("dateSelected");
+        previous.classList.remove("col-xl-3");
+        previous.classList.remove("col-12");
         let print = document.querySelector("#userSelection");
         print.innerHTML = " ";
         hideMap();
 
         //εμφανισε την επιλογή και τις διαθέσημες ημερομινίες
-        printSelection(playSelect);
+        // printSelection(playSelect);
         displayAllPlays(playSelect);
 
         //βάλε μπορντερ στην φωτογραφία για να φαίνεται επιλεγμένη
@@ -100,7 +104,10 @@ function printSelection(userSelection) {
 function displayAllPlays(userSelection) {
     const datesDiv = document.querySelector("#dates");
     let wrapper = document.createElement("div");
-    wrapper.classList.add('rWrapper');
+    wrapper.classList.add('d-flex');
+    wrapper.classList.add('flex-wrap');
+    wrapper.classList.add('justify-content-around');
+
 
     let play = shows[userSelection];
     let datesAr = play.dates;
@@ -113,32 +120,46 @@ function displayAllPlays(userSelection) {
         let dateId = "dateId" + date.replaceAll("-", "");
 
         // φτιαξε ενα radio button
+        let dateDiv = document.createElement('div');
+        dateDiv.classList.add('text-center');
         let input = document.createElement('input');
         input.classList.add('radio');
         input.setAttribute("type", "radio");
         input.setAttribute("id", dateId);
         input.setAttribute("name", "date");
         input.addEventListener("click", (e) => selectSeat(e.target.id));
-
         input.value = date;
-        div.appendChild(input);
+        dateDiv.appendChild(input);
+
         // φτιάξε ενα label
         let label = document.createElement('label');
         label.setAttribute("for", dateId);
         label.innerHTML = date;
-        div.appendChild(label);
+        dateDiv.appendChild(label);
+        div.appendChild(dateDiv);
 
+        let divTitle = document.createElement('h5');
+        divTitle.classList.add('text-center');
+        divTitle.classList.add('border-bottom');
+        divTitle.classList.add('p-3');
+        divTitle.innerHTML = "Συμμετέχουν"
+        div.appendChild(divTitle);
+
+        let divRoles = document.createElement('div');
+        divRoles.classList.add('roles');
         //δημιουργησε το div για κάθε τιτλο/ρόλο
         for (role in play.roles) {
             let divRole = document.createElement('div');
             divRole.classList.add('role');
-            divRole.innerHTML = role + ": <br/>";
-            div.appendChild(divRole);
+            divRole.innerHTML = role + ": ";
+
+            divRoles.appendChild(divRole);
             let span = document.createElement('span');
             span.classList.add('actor');
             divRole.appendChild(span);
+            div.appendChild(divRoles);
 
-           // φτιαξε ένα αντικείμενο με τους ηθοποιούς και τον αντιστοιχο πινακα με τις ημερομινιες που παιζουν 
+            // φτιαξε ένα αντικείμενο με τους ηθοποιούς και τον αντιστοιχο πινακα με τις ημερομινιες που παιζουν 
             let dateAr = play.roles[role];
 
             // για κάθε ηθοποιό αν υπάρχει μεσα ημερομινία που αντιστοιχεί με τη ημερομινια (date) που είνα σε αυτο το forEach
@@ -166,6 +187,7 @@ userOptionSelecton();
 createSeatMap();
 
 function selectSeat(id) {
+    console.log(id);
     //κρύψε όλες τις επιλογές (radio buttons)
     let d = document.querySelectorAll(".date");
     for (i = 0; i < d.length; i++) {
@@ -173,11 +195,13 @@ function selectSeat(id) {
     }
     //εμφάνεσε μόνο την επιλεγμένη ημερομινία στο πλάι
     let dateSelected = document.querySelector("#" + id);
-    dateSelected.parentElement.style.display = "block";
+    dateSelected.parentElement.parentElement.style.display = "block";
 
     //βάλε την κλαση dateSelected για να φτιάξει σωστά το grid στο πλάι
     let dates = document.querySelector("#dates");
     dates.classList.add("dateSelected");
+    dates.classList.add("col-xl-3");
+    dates.classList.add("col-12");
 
     // εμφάνισε το χάρτη
     displayMap();
@@ -192,11 +216,11 @@ function createSeatMap() {
 
     for (i = 1; i <= 10; i++) {
         seat += "<tr>";
-        seat += "<th scope='row'>σειρά: " + i + "</th>"
-        counter++;
-        for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber(" + counter + ",1);' id='S" + counter + "'></td>"
-            counter++;
+        seat += "<th scope='row'><span>σειρά:</span> " + i + "</th>"
+        // counter++;
+        for (z = 1; z <= 50; z++) {
+            seat += "<td class='seat' title=" + z + " onclick='seatNumber(" + z + ", " + i + ",1);' id='S" + z + "L" + i + "'></td>"
+            // counter++;
         }
         seat += "</tr>"
     }
@@ -210,11 +234,11 @@ function createSeatMap() {
 
     for (i = 1; i <= 5; i++) {
         seat += "<tr>";
-        seat += "<th scope='row'>σειρά: " + i + "</th>"
-        counter++;
-        for (z = 0; z < 50; z++) {
-            seat += "<td class='seat' onclick='seatNumber(" + counter + ",2);' id='E" + counter + "' ></td>"
-            counter++;
+        seat += "<th scope='row'><span>σειρά:</span> " + i + "</th>"
+        // counter++;
+        for (z = 1; z <= 50; z++) {
+            seat += "<td class='seat' title=" + z + " onclick='seatNumber(" + z + ", " + i + ",2);' id='E" + z + "L" + i + "'></td>"
+            // counter++;
         }
         seat += "</tr>"
     }
@@ -223,9 +247,11 @@ function createSeatMap() {
 
 }
 
-function seatNumber(number, stage) {
+function seatNumber(number, line, stage) {
     const seatInput = document.querySelector("#seatSelection")
     const input = document.querySelector('#stage');
+    const lineInput = document.querySelector("#lineSelection");
+    lineInput.value = line;
 
     if (stage == 1) {
         seatInput.value = number;
@@ -237,8 +263,9 @@ function seatNumber(number, stage) {
         idLetter = "E"
     }
 
+
     //βάζω ένα selected class για την επιλεγμενη θέση
-    let seatId = idLetter + number;
+    let seatId = idLetter + number + "L" + line;
     const seat = document.querySelectorAll('.seat');
 
     for (i = 0; i < seat.length; i++) {

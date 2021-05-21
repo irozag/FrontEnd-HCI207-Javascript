@@ -2,10 +2,16 @@
 
 <head>
     <title>EΘνική Λυρική Σκηνή</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/shows.js" defer></script>
     <script src="/assets/feature-posts.js" defer></script>
     <script src="/assets/form.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
     <!-- <script src="/assets/submit.js" defer></script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,78 +19,127 @@
 
 <body>
     <header>
-        <div class="logo">
-            <a href="/"><img src="assets/logo.png" alt="logo"> </a>
-        </div>
-        <nav>
-            <a href="/program.html">Πρoγραμμα</a>
-            <a href="/reservation.html">Κρατησεις</a>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="assets/logo.png" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/program.html">Πρoγραμμα</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/reservation.html">Κρατησεις</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
+
     </header>
 
-
-    <section id="feature-feed" class="reserv">
-        <h2>Αγοραστε εισητηρια</h2>
-        <div id="row">
-
-
-        </div>
-
-    </section>
+    <div class="container">
+        <section id="feature-feed" class="reserv">
+            <h2>Αγοραστε εισητηρια</h2>
+            <div id="row" class="row">
 
 
-    <section id="reservation">
-
-        <form >
-            <div class="list">
-                <label for="plays">Παράσταση:</label>
-                <select id="plays" name="plays">
-                    <option value="">--Please choose an option--</option>
-                </select>
             </div>
-            <div id="userSelection"></div>
-            <div class="wrapper">
-                <div id="dates" class="dates">
-                    <!-- <div class="wrapper"></div> -->
-                </div>
 
-                <div class="positions">
-                    <label for="ticket">Τοποθεσία:</label>
-                    <!-- <select id="stage" name="stage" disabled>
-                        <option value="square">Πλατεία</option>
-                        <option value="balcony">Εξωστής</option>
-                    </select> -->
-                    <input type="text" name="stage" id="stage" disabled size="7">
-                    <label for="seat">Θέση:</label>
-                    <input type="text" name="seat" id="seatSelection" disabled size="5">
-                    <label for="ticket">Εισητήριο:</label>
-                    <select id="ticket" name="ticket">
-                        <option value="regural">Κανονικό</option>
-                        <option value="student">Φοιτιτικό</option>
+        </section>
+
+
+        <section id="reservation" class="row">
+
+            <form action="" class="validate" novalidate>
+                <div class="list text-center">
+                    <legend class="text-center">Επιλέξτε Παράσταση:</legend>
+                    <select id="plays" class="form-select p-3" name="plays">
+                        <option value="">--Παράσταση--</option>
                     </select>
-                    <!-- <span id="seatSelection"> </span> -->
-                    <table id="map" class="map"> </table>
-                    <table id="map2" class="map"> </table>
                 </div>
-                <div class="personalDetails">
+                <div id="userSelection"></div>
+                <div class="container-fluid">
+                    <div class="row mt-4">
+                        <div id="dates">
+                            <!-- <div class="wrapper"></div> -->
+                        </div>
 
-                    <label for="name">Όνομα:</label>
-                    <input type="text" name="name" id="name" pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}" placeholder="Type your name" required>
-                    <label for="surname">Επίθετο:</label>
-                    <input type="text" name="surname" id="surname" pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}"  placeholder="Type your surname" required>
+                        <div class="positions col-xl-9 col-12 ">
+                            <legend class="text-center">Επιλέξτε θέση:</legend>
+                            <table id="map" class="map"> </table>
+                            <table id="map2" class="map"> </table>
+                            <div class="container">
+                                <div class="row  g-3 justify-content-md-center">
+                                    <div class="col-lg-3 col-12">
+                                        <label for="ticket" class="form-label">Τοποθεσία:</label>
+                                        <input type="text" name="stage" class="form-control p-2" id="stage" disabled
+                                            size="7">
+                                    </div>
+                                    <div class="col-lg-3 col-12">
+                                        <label for="seat" class="form-label">Θέση:</label>
+                                        <input type="text" name="seat" class="form-control p-2" id="seatSelection"
+                                            disabled size="5">
+                                    </div>
+                                    <div class="col-lg-3 col-12">
+                                        <label for="seat" class="form-label">Σειρά:</label>
+                                        <input type="text" name="line" class="form-control p-2" id="lineSelection"
+                                            disabled size="5">
+                                    </div>
+                                    <div class="col-lg-3 col-12">
+                                        <label for="ticket" class="form-label">Εισητήριο:</label>
+                                        <select id="ticket" class="form-select p-2" name="ticket">
+                                            <option value="regural">Κανονικό</option>
+                                            <option value="student">Φοιτιτικό</option>
+                                        </select>
+                                    </div>
+                                </div><!-- row -->
+                            </div><!-- conteiner -->
+            
+                        </div><!-- col -->
+                    </div> <!-- row -->
+                    <div class="personalDetails row g-3">
+                            <div class="container-fluid">
+                                <div class="row justify-content-md-center align-items-center">
+                                <div class="col-lg-4 col-12 mb-3 mb-lg-0">
+                                    <label for="name" class="form-label">Όνομα:</label>
+                                    <input type="text" class="form-control p-3" name="name" id="name"
+                                        pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}" placeholder="Type your name" required>
+                                        <div class="invalid-feedback">Το όνομα πρέπει να περιέχει τουλάχιστον 3 γράμματα και κανένα αριθμό</div>
+                                </div>
+                                <div class="col-lg-4 col-12 mb-3 mb-lg-0">
+                                    <label for="surname" class="form-label">Επίθετο:</label>
+                                    <input type="text" class="form-control p-3" name="surname" id="surname"
+                                        pattern="^[A-Za-zΑ-Ωα-ωΆ-Ώά-ώ]{3,}" placeholder="Type your surname" required>
+                                        <div class="invalid-feedback">Το όνομα πρέπει να περιέχει τουλάχιστον 3 γράμματα και κανένα αριθμό</div>
+                                </div>
+                                <div class="col-lg-4 col-12 mb-3 mb-lg-0">
+                                    <label for="email" class="form-label">Ηλεκτρονικό Ταχυδρομείο:</label>
+                                    <input type="email" class="form-control p-3" name="email" id="email"
+                                        placeholder="email@example.com" required>
+                                        <div class="invalid-feedback">Το email πρέπει να έχει την τυπική μορφή του διακριτικού ονόματος - @ - όνομα domain</div>
+                                </div>
+                                <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
+                            
+                                <!-- <output id="message"></output> -->
+                            </div><!-- inner row-->
+                            <div class="row mt-4 p-2">
+                                <button class="btn btn-primary" type="submit">Κράτηση</button>
+                            </div>
+                          
+                        </div> <!-- inner container -->
+                    </div>
+                    <!--row -->
+                </div> <!-- conteiner -->
+            </form>
+        </section>
 
-                    <label for="email">Ηλεκτρονικό Ταχυδρομείο:</label>
-                    <input type="email" name="email" id="email" placeholder="email@example.com" required>
-                    <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
-                    <input type="submit" value="Κράτηση">
-                    <!-- <output id="message"></output> -->
-                </div>
-
-            </div>
-        </form>
-    </section>
-
-
+    </div>
     <footer>
         <div class="footer-links">
             <ul>
@@ -94,6 +149,17 @@
             </ul>
         </div>
     </footer>
+
+    <script>
+        const myform = document.querySelector(".validate");
+         
+        myform.addEventListener('submit', (event) => {
+            if (!myform.checkValidity()){
+                event.preventDefault()
+            }
+            myform.classList.add('was-validated')
+        })
+    </script>
 </body>
 
 </html>

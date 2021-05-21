@@ -11,7 +11,7 @@ document.querySelector(".production").innerHTML = play.production;
 document.querySelector(".description").innerHTML = play.description;
 document.querySelector(".feature-photo").style.backgroundImage = "url(" + play.photo + ")";
 
-
+//Εκτύπωσε τις ημερομινίες
 let dates = play.dates;
 dates.forEach(date => {
     document.querySelector(".dates").innerHTML += date+", ";
