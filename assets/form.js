@@ -208,45 +208,6 @@ function selectSeat(id) {
 
 }
 
-function createSeatMap() {
-    const map = document.querySelector("#map");
-
-    let seat = "<tbody>";
-    let counter = 0;
-
-    for (i = 1; i <= 10; i++) {
-        seat += "<tr>";
-        seat += "<th scope='row'><span>σειρά:</span> " + i + "</th>"
-        // counter++;
-        for (z = 1; z <= 50; z++) {
-            seat += "<td class='seat' title=" + z + " onclick='seatNumber(" + z + ", " + i + ",1);' id='S" + z + "L" + i + "'></td>"
-            // counter++;
-        }
-        seat += "</tr>"
-    }
-    seat += "</tbody>"
-    map.innerHTML = seat;
-
-    //second map 
-    const map2 = document.querySelector("#map2");
-    seat = "<tbody>";
-    counter = 0;
-
-    for (i = 1; i <= 5; i++) {
-        seat += "<tr>";
-        seat += "<th scope='row'><span>σειρά:</span> " + i + "</th>"
-        // counter++;
-        for (z = 1; z <= 50; z++) {
-            seat += "<td class='seat' title=" + z + " onclick='seatNumber(" + z + ", " + i + ",2);' id='E" + z + "L" + i + "'></td>"
-            // counter++;
-        }
-        seat += "</tr>"
-    }
-    seat += "</tbody>"
-    map2.innerHTML = seat;
-
-}
-
 function seatNumber(number, line, stage) {
     const seatInput = document.querySelector("#seatSelection")
     const input = document.querySelector('#stage');
@@ -303,10 +264,8 @@ function hideMap() {
 }
 
 function displayMap() {
-    const map = document.querySelector("#map");
-    const map2 = document.querySelector("#map2");
+    const map = document.querySelector(".map");
     map.style.display = "table";
-    map2.style.display = "table";
 
     //εμφάνισε τις θέσεις
     const view = document.querySelector(".positions");

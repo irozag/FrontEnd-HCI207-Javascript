@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/shows.js" defer></script>
     <script src="/assets/feature-posts.js" defer></script>
+    <script src="/assets/createSeatMap.js" defer></script>
     <script src="/assets/form.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
@@ -72,8 +73,10 @@
 
                         <div class="positions col-xl-9 col-12 ">
                             <legend class="text-center">Επιλέξτε θέση:</legend>
-                            <table id="map" class="map"> </table>
-                            <table id="map2" class="map"> </table>
+                            <!-- <table id="map" class="map"> </table>
+                            <table id="map2" class="map"> </table> -->
+                            <canvas id="canvas" class="map" width="600" height="400"></canvas>
+
                             <div class="container">
                                 <div class="row  g-3 justify-content-md-center">
                                     <div class="col-lg-3 col-12">
