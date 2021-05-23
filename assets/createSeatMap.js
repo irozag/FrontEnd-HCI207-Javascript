@@ -99,7 +99,7 @@ function seatNumber(number, line, stage) {
 }
 
 function createSeatMap2() {
-    let ctx = document.querySelector("#canvas").getContext("2d");
+   
     class Rect {
         constructor(size = "", coordinates = "", seat = "") {
             this.size = size;
@@ -172,13 +172,19 @@ function createSeatMap2() {
         }
 
     }
-
+    let ctx = document.querySelector("#canvas").getContext("2d");
+    ctx.font = "14px sans-serif";
     const size = [10, 20];
     let nextDrawX = 0;
     let nextDrawY = 0;
     let coordinates = [nextDrawX, nextDrawY];
     let rects = [];
+
     for (i = 1; i <= 10; i++) {
+        ctx.fillStyle = "#000";
+        ctx.fillText("σειρά: " + i, nextDrawX, nextDrawY + 15);
+        nextDrawX += nextDrawX + 65;
+        coordinates = [nextDrawX, nextDrawY];
         for (z = 1; z <= 50; z++) {
             let seat = [z, i, "platia"];
             var r = new Rect(size, coordinates, seat);
@@ -194,6 +200,10 @@ function createSeatMap2() {
 
 
     for (i = 1; i <= 5; i++) {
+        ctx.fillStyle = "#000";
+        ctx.fillText("σειρά: " + i, nextDrawX, nextDrawY + 15);
+        nextDrawX += nextDrawX + 65;
+        coordinates = [nextDrawX, nextDrawY];
         for (z = 1; z <= 50; z++) {
             let seat = [z, i, "eksostis"];
             r = new Rect(size, coordinates, seat);
