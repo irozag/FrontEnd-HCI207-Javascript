@@ -213,8 +213,9 @@ function getClickedSeat(x, y, rects) {
     rectClicked = rects.find((rect) => {
         return rect.hasClick(x, y);
     });
-
-    return seat = rectClicked.seat;
+    if (rectClicked !== undefined ) {
+        return seat = rectClicked.seat;
+    } else return seat = [ "", "", ""];
 }
 
 let drawedRects = createSeatMap2();
