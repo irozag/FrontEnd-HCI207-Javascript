@@ -68,6 +68,9 @@ function createSeatMap2() {
         get getSeat(){
           return [this.number,this.series,this.stage] = [this.seat[0],this.seat[1],this.seat[2]];
         }
+        get getRect () {
+            return [this.size, this.coordinates, this.seat];
+          }
       
        draw = function(){
        this.getSeat;
@@ -78,46 +81,74 @@ function createSeatMap2() {
        this.getSize;
        ctx.fillRect(this.x,this.y,this.width,this.height);
     }
-}
+
+    hasClick = function(x,y){
+        this.getCoordinates;
+        this.getSize;
+        if (x >= this.x && x<= this.width && y >= this.y && y <= this.height)
+        return this.seat;
+    }
+  }
+
 
 let ctx = document.querySelector("#canvas").getContext("2d");
 let size = [10,20];
 let nextDrawX = 0;
 let nextDrawY = 0;
 let coordinates = [nextDrawX,nextDrawY];
-let r = new Rect(size,coordinates,"");
+let rects = [];
 for (i = 1; i <= 10; i++) {
+    let r = new Rect("","","");
     for (z = 1; z <= 50; z++) {
         let seat = [z,i,"platia"];
         r.setSeat = seat;
+        r.setCoordinates = coordinates;
+        r.setSize = size;
         r.draw();
-        r.getCoordinates;
-        r.getSize;
+        rects.push(r.getRect);
         nextDrawX = r.x+r.width+1;
-        r.setCoordinates = [nextDrawX, nextDrawY];
+        coordinates = [nextDrawX, nextDrawY];
     }
-    r.draw();
     nextDrawY = r.y+r.height+1;
     nextDrawX = 0;
-    r.setCoordinates = [nextDrawX, nextDrawY]
+    coordinates = [nextDrawX, nextDrawY]
 }
 
+// nextDrawY = nextDrawY+10;
+
 for (i = 1; i <= 5; i++) {
+    let r = new Rect("","","");
     for (z = 1; z <= 50; z++) {
         let seat = [z,i,"eksostis"];
         r.setSeat = seat;
+        r.setCoordinates = coordinates;
+        r.setSize = size;
         r.draw();
-        r.getCoordinates;
-        r.getSize;
+        rects.push(r.getRect);
         nextDrawX = r.x+r.width+1;
-        r.setCoordinates = [nextDrawX, nextDrawY];
+        coordinates = [nextDrawX, nextDrawY];
     }
-    r.draw();
     nextDrawY = r.y+r.height+1;
     nextDrawX = 0;
-    r.setCoordinates = [nextDrawX, nextDrawY]
+    coordinates = [nextDrawX, nextDrawY]
 }
+console.log(rects);
+
+}
+// function getClickedRect (x, y) {
+//     let rSearch = new Rect();
+//     let seat = rSearch.hasClick(x,y);
+//     console.log(seat);
+//     return seat;
+// }
+
+// ctx.addEventListener("mouseDown", (event) => {
+//     const clickedX = event.pageX;
+//     const clickedY = event.pageY;
+
+//     const clickedSeat = getClickedRect(clickedX,clickedY);
+//     console.log(clickedSeat);
+// })
 
 
-}
 createSeatMap2();

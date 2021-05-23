@@ -184,7 +184,7 @@ function displayAllPlays(userSelection) {
 
 userTitleSelection();
 userOptionSelecton();
-createSeatMap();
+// createSeatMap();
 
 function selectSeat(id) {
     console.log(id);
