@@ -147,10 +147,30 @@ function createSeatMap2() {
         }
 
         hasClick = function (x, y) {
-            if  (this.x <= x && x <= this.x + this.width && this.y <=y && y <= this.y + this.height){
+            if (this.x <= x && x <= this.x + this.width && this.y <= y && y <= this.y + this.height) {
+                this.isSelected(this.x,this.y);
                 return true;
-            }else return false;
+            } else return false;
         }
+
+        isSelected = function (x, y) {
+            if (localStorage.length != 0) {
+                let previousCoo = localStorage.getItem("clickedItem").split(",");
+                let previousSt = localStorage.getItem("clickedItemStage");
+                console.log(previousCoo);
+                ctx.clearRect(previousCoo[0], previousCoo[1], this.width, this.height);
+                if (previousSt == "platia") {
+                    ctx.fillStyle = "#7602ce";
+                } else ctx.fillStyle = "#10bbc7";
+                ctx.fillRect(previousCoo[0], previousCoo[1], this.width, this.height);
+            }
+            ctx.fillStyle = "#000";
+            ctx.fillRect(x, y, this.width, this.height);
+            localStorage.setItem ('clickedItem', [x,y]);
+            localStorage.setItem ('clickedItemStage', this.stage);
+
+        }
+
     }
 
     const size = [10, 20];
@@ -190,20 +210,22 @@ function createSeatMap2() {
 }
 
 function getClickedSeat(x, y, rects) {
-   rectClicked = rects.find((rect) => {
+    rectClicked = rects.find((rect) => {
         return rect.hasClick(x, y);
     });
+
     return seat = rectClicked.seat;
 }
 
 let drawedRects = createSeatMap2();
 //addEventListener to canvas 
 let canvas = document.querySelector("#canvas");
+localStorage.clear();
 canvas.addEventListener("mousedown", (event) => {
     const clickedX = event.offsetX;
     const clickedY = event.offsetY;
 
     const clickedSeat = getClickedSeat(clickedX, clickedY, drawedRects);
-    seatNumber(clickedSeat[0], clickedSeat[1], clickedSeat[2]) ;
+    seatNumber(clickedSeat[0], clickedSeat[1], clickedSeat[2]);
 })
 
