@@ -208,16 +208,14 @@ function selectSeat(id) {
 
 }
 
-
-
-
-
 function hideMap() {
-    const map = document.querySelector("#map");
-    const map2 = document.querySelector("#map2");
+    // const map = document.querySelector("#map");
+    // const map2 = document.querySelector("#map2");
 
+    // map.style.display = "none";
+    // map2.style.display = "none";
+    const map = document.querySelector(".map");
     map.style.display = "none";
-    map2.style.display = "none";
 
     //κρυψε τις θέσεις
     let view = document.querySelector(".positions");
