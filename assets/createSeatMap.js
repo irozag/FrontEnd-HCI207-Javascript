@@ -105,35 +105,24 @@ function createSeatMap2() {
             this.size = size;
             this.coordinates = coordinates;
             this.seat = seat;
-            // this.rect = [ this.size, this.coordinates,this.seat];
         }
         set setSize(size) {
             [this.width, this.height] = [this.size[0], this.size[1]];
-            this.size = size;
-            // this.rect[0]=coordinates;
         }
         get getSize() {
             return [this.width, this.height] = [this.size[0], this.size[1]];
         }
         set setCoordinates(coordinates) {
-            this.coordinates = coordinates;
-            // this.rect[1]=coordinates;
             [this.x, this.y] = [this.coordinates[0], this.coordinates[1]];
         }
         get getCoordinates() {
             return [this.x, this.y] = [this.coordinates[0], this.coordinates[1]];
         }
         set setSeat(seat) {
-            this.seat = seat;
-            // this.rect[2]=seat;
             [this.number, this.series, this.stage] = [this.seat[0], this.seat[1], this.seat[2]];
         }
         get getSeat() {
             return [this.number, this.series, this.stage] = [this.seat[0], this.seat[1], this.seat[2]];
-        }
-
-        get getRect() {
-            return [this.size, this.coordinates, this.seat];
         }
 
         draw = function () {
@@ -157,7 +146,7 @@ function createSeatMap2() {
             if (localStorage.length != 0) {
                 let previousCoo = localStorage.getItem("clickedItem").split(",");
                 let previousSt = localStorage.getItem("clickedItemStage");
-                console.log(previousCoo);
+
                 ctx.clearRect(previousCoo[0], previousCoo[1], this.width, this.height);
                 if (previousSt == "platia") {
                     ctx.fillStyle = "#7602ce";
