@@ -208,42 +208,8 @@ function selectSeat(id) {
 
 }
 
-function seatNumber(number, line, stage) {
-    const seatInput = document.querySelector("#seatSelection")
-    const input = document.querySelector('#stage');
-    const lineInput = document.querySelector("#lineSelection");
-    lineInput.value = line;
-
-    if (stage == 1) {
-        seatInput.value = number;
-        input.value = 'Πλατεία';
-        idLetter = "S"
-    } else {
-        seatInput.value = number;
-        input.value = 'Eξώστης';
-        idLetter = "E"
-    }
 
 
-    //βάζω ένα selected class για την επιλεγμενη θέση
-    let seatId = idLetter + number + "L" + line;
-    const seat = document.querySelectorAll('.seat');
-
-    for (i = 0; i < seat.length; i++) {
-        console.log(seat[i].id);
-        if (seat[i].id == seatId) {
-            seat[i].classList.add("selected");
-        } else {
-            seat[i].classList.remove("selected");
-        }
-
-    }
-
-    //εμφανίζω τα υπολοιπα στοιχεία της φορμας
-    const view = document.querySelector(".personalDetails");
-    view.style.display = "block";
-
-}
 
 
 function hideMap() {

@@ -38,6 +38,66 @@
 
 // }
 
+
+// function seatNumber(number, line, stage) {
+//     const seatInput = document.querySelector("#seatSelection")
+//     const input = document.querySelector('#stage');
+//     const lineInput = document.querySelector("#lineSelection");
+//     lineInput.value = line;
+
+//     if (stage == 1) {
+//         seatInput.value = number;
+//         input.value = 'Πλατεία';
+//         idLetter = "S"
+//     } else {
+//         seatInput.value = number;
+//         input.value = 'Eξώστης';
+//         idLetter = "E"
+//     }
+
+
+//     //βάζω ένα selected class για την επιλεγμενη θέση
+//     let seatId = idLetter + number + "L" + line;
+//     const seat = document.querySelectorAll('.seat');
+
+//     for (i = 0; i < seat.length; i++) {
+//         console.log(seat[i].id);
+//         if (seat[i].id == seatId) {
+//             seat[i].classList.add("selected");
+//         } else {
+//             seat[i].classList.remove("selected");
+//         }
+
+//     }
+
+//     //εμφανίζω τα υπολοιπα στοιχεία της φορμας
+//     const view = document.querySelector(".personalDetails");
+//     view.style.display = "block";
+
+// }
+
+function seatNumber(number, line, stage) {
+    const seatInput = document.querySelector("#seatSelection")
+    const stageInput = document.querySelector('#stage');
+    const lineInput = document.querySelector("#lineSelection");
+    lineInput.value = line;
+
+    if (stage == "platia") {
+        seatInput.value = number;
+        lineInput.value = line;
+        stageInput.value = 'Πλατεία';
+    } else {
+        seatInput.value = number;
+        lineInput.value = line;
+        stageInput.value = 'Eξώστης';
+    }
+
+    //εμφανίζω τα υπολοιπα στοιχεία της φορμας
+    const view = document.querySelector(".personalDetails");
+    view.style.display = "block";
+
+}
+
 function createSeatMap2() {
     let ctx = document.querySelector("#canvas").getContext("2d");
     class Rect {
@@ -87,12 +147,7 @@ function createSeatMap2() {
         }
 
         hasClick = function (x, y) {
-            // console.log(x);
-            // console.log(y);
-            this.getCoordinates;
-            this.getSize;
-            // console.log(this.x);
-            if (x >= this.x && x <= this.width && y >= this.y && y <= this.height){
+            if  (this.x <= x && x <= this.x + this.width && this.y <=y && y <= this.y + this.height){
                 return true;
             }else return false;
         }
@@ -109,15 +164,14 @@ function createSeatMap2() {
             var r = new Rect(size, coordinates, seat);
             r.draw();
             rects.push(r);
-            nextDrawX = r.x + r.width + 1;
+            nextDrawX = r.x + r.width + 2;
             coordinates = [nextDrawX, nextDrawY];
         }
-        nextDrawY = r.y + r.height + 1;
+        nextDrawY = r.y + r.height + 2;
         nextDrawX = 0;
         coordinates = [nextDrawX, nextDrawY];
     }
 
-    // nextDrawY = nextDrawY+10;
 
     for (i = 1; i <= 5; i++) {
         for (z = 1; z <= 50; z++) {
@@ -125,38 +179,31 @@ function createSeatMap2() {
             r = new Rect(size, coordinates, seat);
             r.draw();
             rects.push(r);
-            nextDrawX = r.x + r.width + 1;
+            nextDrawX = r.x + r.width + 2;
             coordinates = [nextDrawX, nextDrawY];
         }
-        nextDrawY = r.y + r.height + 1;
+        nextDrawY = r.y + r.height + 2;
         nextDrawX = 0;
         coordinates = [nextDrawX, nextDrawY];
     }
     return rects;
 }
 
-function getClickedRect(x, y, rects) {
-    console.log("cord " + x + " and " + y);
-    return rects.find((rect) => {
-        // let test = rect.coordinates;
-        // rect.getSize;
-        // let test = rect.hasClick(x, y);
-        // console.log(test);
+function getClickedSeat(x, y, rects) {
+   rectClicked = rects.find((rect) => {
         return rect.hasClick(x, y);
     });
-       
+    return seat = rectClicked.seat;
 }
 
 let drawedRects = createSeatMap2();
-// console.log(drawedRects);
-
+//addEventListener to canvas 
 let canvas = document.querySelector("#canvas");
 canvas.addEventListener("mousedown", (event) => {
     const clickedX = event.offsetX;
     const clickedY = event.offsetY;
-    // console.log(clickedX);
-    const clickedRect = getClickedRect(clickedX, clickedY, drawedRects);
-    // let seat = clickedRect.seat;
-   
+
+    const clickedSeat = getClickedSeat(clickedX, clickedY, drawedRects);
+    seatNumber(clickedSeat[0], clickedSeat[1], clickedSeat[2]) ;
 })
 
