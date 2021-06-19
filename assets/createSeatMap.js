@@ -76,21 +76,25 @@
 
 // }
 
-function seatNumber(number, line, stage) {
+function seatNumber(number, line, stage, state) {
     const seatInput = document.querySelector("#seatSelection")
     const stageInput = document.querySelector('#stage');
     const lineInput = document.querySelector("#lineSelection");
-    lineInput.value = line;
+    // lineInput.value = line;
+
+if (state !== true) {
 
     if (stage == "platia") {
         seatInput.value = number;
         lineInput.value = line;
         stageInput.value = 'Πλατεία';
-    } else {
+    } if (stage == "eksostis") {
         seatInput.value = number;
         lineInput.value = line;
         stageInput.value = 'Eξώστης';
     }
+} 
+ 
 
     //εμφανίζω τα υπολοιπα στοιχεία της φορμας
     const view = document.querySelector(".personalDetails");
@@ -99,7 +103,7 @@ function seatNumber(number, line, stage) {
 }
 
 function createSeatMap2() {
-   
+
     class Rect {
         constructor(size = "", coordinates = "", seat = "") {
             this.size = size;
@@ -119,25 +123,30 @@ function createSeatMap2() {
             return [this.x, this.y] = [this.coordinates[0], this.coordinates[1]];
         }
         set setSeat(seat) {
-            [this.number, this.series, this.stage] = [this.seat[0], this.seat[1], this.seat[2]];
+            [this.number, this.series, this.stage, this.state] = [this.seat[0], this.seat[1], this.seat[2], this.seat[3]];
         }
         get getSeat() {
-            return [this.number, this.series, this.stage] = [this.seat[0], this.seat[1], this.seat[2]];
+            return [this.number, this.series, this.stage, this.state] = [this.seat[0], this.seat[1], this.seat[2], this.seat[3]];
         }
 
         draw = function () {
             this.getSeat;
+            let number = Math.floor(Math.random() * 100) + 1;
+            if (number < this.number) { this.state = true }
             if (this.stage == "platia") {
                 ctx.fillStyle = "#7602ce";
             } else ctx.fillStyle = "#10bbc7";
+            if (this.state == true) {
+                ctx.fillStyle = "#bbb";
+            }
             this.getCoordinates;
             this.getSize;
             ctx.fillRect(this.x, this.y, this.width, this.height);
         }
 
         hasClick = function (x, y) {
-            if (this.x <= x && x <= this.x + this.width && this.y <= y && y <= this.y + this.height) {
-                this.isSelected(this.x,this.y);
+            if (this.x <= x && x <= this.x + this.width && this.y <= y && y <= this.y + this.height & this.state == false) {
+                this.isSelected(this.x, this.y);
                 return true;
             } else return false;
         }
@@ -155,12 +164,40 @@ function createSeatMap2() {
             }
             ctx.fillStyle = "#000";
             ctx.fillRect(x, y, this.width, this.height);
-            localStorage.setItem ('clickedItem', [x,y]);
-            localStorage.setItem ('clickedItemStage', this.stage);
-
+            localStorage.setItem('clickedItem', [x, y]);
+            localStorage.setItem('clickedItemStage', this.stage);
         }
 
+        // isBooked = function () {
+        //    let booked = randomBookedSeats();
+        //    if (this.state){
+        //      return true;
+        //   } else return false;  
+        // }
+
     }
+
+
+    // function randomBookedSeats() {
+    //      let bookedArr =[];
+    //      for (i=1; i<=50; i++) {
+    //          let number = Math.floor(Math.random() * 50)+1;
+    //          let series = Math.floor(Math.random() * 10)+1;
+    //          let seat = [number,series,"platia", true]
+    //          bookedArr.push(seat);
+    //      }
+    //      for (i=1; i<=15; i++) {
+    //         let number = Math.floor(Math.random() * 50)+1;
+    //         let series = Math.floor(Math.random() * 5)+1;
+    //         let seat = [number,series,"eksostis",true]
+    //        bookedArr.push(seat);
+    //     }
+    //     console.log(bookedArr);
+    //     return bookedArr;
+    // }
+
+
+
     let ctx = document.querySelector("#canvas").getContext("2d");
     ctx.font = "14px sans-serif";
     const size = [10, 20];
@@ -169,13 +206,14 @@ function createSeatMap2() {
     let coordinates = [nextDrawX, nextDrawY];
     let rects = [];
 
+
     for (i = 1; i <= 10; i++) {
         ctx.fillStyle = "#000";
         ctx.fillText("σειρά: " + i, nextDrawX, nextDrawY + 15);
         nextDrawX += nextDrawX + 65;
         coordinates = [nextDrawX, nextDrawY];
         for (z = 1; z <= 50; z++) {
-            let seat = [z, i, "platia"];
+            let seat = [z, i, "platia", false];
             var r = new Rect(size, coordinates, seat);
             r.draw();
             rects.push(r);
@@ -194,7 +232,7 @@ function createSeatMap2() {
         nextDrawX += nextDrawX + 65;
         coordinates = [nextDrawX, nextDrawY];
         for (z = 1; z <= 50; z++) {
-            let seat = [z, i, "eksostis"];
+            let seat = [z, i, "eksostis", false];
             r = new Rect(size, coordinates, seat);
             r.draw();
             rects.push(r);
@@ -205,6 +243,7 @@ function createSeatMap2() {
         nextDrawX = 0;
         coordinates = [nextDrawX, nextDrawY];
     }
+
     return rects;
 }
 
@@ -212,9 +251,9 @@ function getClickedSeat(x, y, rects) {
     rectClicked = rects.find((rect) => {
         return rect.hasClick(x, y);
     });
-    if (rectClicked !== undefined ) {
+    if (rectClicked !== undefined) {
         return seat = rectClicked.seat;
-    } else return seat = [ "", "", ""];
+    } else return seat = ["", "", "", ""];
 }
 
 let drawedRects = createSeatMap2();
@@ -226,6 +265,8 @@ canvas.addEventListener("mousedown", (event) => {
     const clickedY = event.offsetY;
 
     const clickedSeat = getClickedSeat(clickedX, clickedY, drawedRects);
-    seatNumber(clickedSeat[0], clickedSeat[1], clickedSeat[2]);
+    seatNumber(clickedSeat[0], clickedSeat[1], clickedSeat[2], clickedSeat[3]);
 })
+
+
 
